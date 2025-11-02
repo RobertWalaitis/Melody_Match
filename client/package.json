@@ -2,7 +2,7 @@
   "name": "client",
   "version": "1.0.0",
   "private": true,
-  "homepage": "https://RobertWalaitis.github.io/Melody_Match/",
+  "homepage": "https://RobertWalaitis.github.io/Melody_Match",
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
