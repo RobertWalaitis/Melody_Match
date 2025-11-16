@@ -1,11 +1,7 @@
 CREATE TABLE Profile (
-    name varchar(20) PRIMARY KEY,
-    password varchar(20),
-    likedsong1 INTEGER,
-    likedsong2 INTEGER,
-    likedsong3 INTEGER,
-    likedsong4 INTEGER,
-    likedsong5 INTEGER
+    user_id INTEGER PRIMARY KEY,
+    name varchar(20),
+    password varchar(20)
 );
 
 CREATE TABLE Song (
@@ -14,4 +10,9 @@ CREATE TABLE Song (
     length INTEGER,
     genre varchar(100),
     artist varchar(100)
+);
+
+CREATE TABLE Liked (
+    liked_song_id INTEGER references Song(song_id),
+    profile_user_id INTEGER references Profile(user_id)
 );
