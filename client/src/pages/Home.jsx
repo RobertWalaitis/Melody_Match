@@ -16,6 +16,9 @@ function Home() {
           getSongs(),
           getLikes()
         ]);
+        console.log("Users:", usersData);
+        console.log("Songs:", songsData);
+        console.log("Likes:", likesData);
         setUsers(usersData);
         setSongs(songsData);
         setLikes(likesData);
