@@ -1,6 +1,6 @@
 // src/pages/Home.jsx
 import React, { useEffect, useState } from "react";
-import { getUsers, getSongs, getLikes } from "../api";
+import { getProfiles, getSongs, getLikes } from "../api";
 
 function Home() {
   const [users, setUsers] = useState([]);
@@ -12,7 +12,7 @@ function Home() {
     async function fetchData() {
       try {
         const [usersData, songsData, likesData] = await Promise.all([
-          getUsers(),
+          getProfiles(),
           getSongs(),
           getLikes()
         ]);
