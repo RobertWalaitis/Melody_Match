@@ -36,11 +36,11 @@ function Home() {
       {error && <p style={{ color: "red" }}>{error}</p>}
 
       <section style={{ marginBottom: "2rem" }}>
-        <h2>Users</h2>
+        <h2>Profiles</h2>
         <ul>
-          {users.map((profiles) => (
-            <li key={profiles.profile_id}>
-              {profiles.profile_name} (ID: {profiles.profile_id})
+          {profiles.map((profile) => (
+            <li key={profile.profile_id}>
+              {profile.profile_name} (ID: {profile.profile_id})
             </li>
           ))}
         </ul>
