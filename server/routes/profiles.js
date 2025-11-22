@@ -54,6 +54,7 @@ export default function profileRoutes(db) {
             [name, password]
         );
         if (!profile) return res.status(401).json({ message: "Invalid name or password" });
+        console.log("Login successful for profile:", profile);
         res.json(profile);
     });
 
