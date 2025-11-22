@@ -27,7 +27,7 @@ let db;
   console.log("Database ready.");
 
   // Mount API routes
-  app.use("/api/profile", profileRoutes(db));
+  app.use("/api/profiles", profileRoutes(db));
   app.use("/api/song", songRoutes(db));
   app.use("/api/like", likedRoutes(db));
 
