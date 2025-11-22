@@ -7,7 +7,11 @@ import songRouter from "./routes/song.js";
 import likedRouter from "./routes/liked.js";
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: "https://robertwalaitis.github.io",
+  methods: "GET,POST,PUT,DELETE",
+  allowedHeaders: "Content-Type"
+}));
 app.use(express.json());
 
 let db;
