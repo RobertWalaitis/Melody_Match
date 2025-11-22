@@ -27,13 +27,33 @@ export default function profileRoutes(db) {
         res.json({ success: true, profile_id: result.lastID });
     });
 
-    // Update a profile
-    router.put("/:id", async (req, res) => {
+    // Update username only
+    router.put("/:id/username", async (req, res) => {
         const { id } = req.params;
-        const { name, password } = req.body;
+        const { name } = req.body;
+
+        if (!name) {
+            return res.status(400).json({ success: false, error: "Name is required" });
+        }
         await db.run(
-            "UPDATE Profiles SET profile_name = ?, profile_password = ? WHERE profile_id = ?",
-            [name, password, id]
+            "UPDATE Profiles SET profile_name = ? WHERE profile_id = ?",
+            [name, id]
+        );
+        res.json({ success: true });
+    });
+
+    // Update password only
+    router.put("/:id/password", async (req, res) => {
+        const { id } = req.params;
+        const { password } = req.body;
+
+        if (!password) {
+            return res.status(400).json({ success: false, error: "Password is required" });
+        }
+
+        await db.run(
+            "UPDATE Profiles SET profile_password = ? WHERE profile_id = ?",
+            [password, id]
         );
         res.json({ success: true });
     });
