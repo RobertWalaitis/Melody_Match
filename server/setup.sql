@@ -1,4 +1,4 @@
-CREATE TABLE Profile (
+CREATE TABLE Profiles (
     profile_id INTEGER PRIMARY KEY,
     profile_name varchar(20),
     profile_password varchar(20)
@@ -14,5 +14,5 @@ CREATE TABLE Song (
 
 CREATE TABLE Liked (
     liked_song_id INTEGER references Song(song_id),
-    profile_user_id INTEGER references Profile(user_id)
+    profile_user_id INTEGER references Profiles(user_id)
 );

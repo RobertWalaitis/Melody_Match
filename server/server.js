@@ -34,7 +34,7 @@ async function seedDatabase(db) {
   await db.run("DELETE FROM Profile");
 
   // Profile
-  const profiles = await readCSV(path.join("data", "profile.csv"));
+  const profiles = await readCSV(path.join("data", "profiles.csv"));
   for (const p of profiles) {
     await db.run("INSERT INTO Profile (profile_id, profile_name, profile_password) VALUES (?, ?, ?)", [
       p.profile_id,
