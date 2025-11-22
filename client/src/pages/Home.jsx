@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { getProfiles, getSongs, getLikes } from "../api";
 
 function Home() {
-  const [users, setUsers] = useState([]);
+  const [profiles, setProfiles] = useState([]);
   const [songs, setSongs] = useState([]);
   const [likes, setLikes] = useState([]);
   const [error, setError] = useState("");
@@ -11,15 +11,15 @@ function Home() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const [usersData, songsData, likesData] = await Promise.all([
+        const [profilesData, songsData, likesData] = await Promise.all([
           getProfiles(),
           getSongs(),
           getLikes()
         ]);
-        console.log("Users:", usersData);
+        console.log("Profiles:", profilesData);
         console.log("Songs:", songsData);
         console.log("Likes:", likesData);
-        setUsers(usersData);
+        setProfiles(profilesData);
         setSongs(songsData);
         setLikes(likesData);
       } catch (err) {
@@ -38,9 +38,9 @@ function Home() {
       <section style={{ marginBottom: "2rem" }}>
         <h2>Users</h2>
         <ul>
-          {users.map((user) => (
-            <li key={user.user_id}>
-              {user.name} (ID: {user.user_id})
+          {users.map((profiles) => (
+            <li key={profiles.profile_id}>
+              {profiles.profile_name} (ID: {profiles.profile_id})
             </li>
           ))}
         </ul>
@@ -51,7 +51,7 @@ function Home() {
         <ul>
           {songs.map((song) => (
             <li key={song.song_id}>
-              {song.title} by {song.artist} - {song.genre} ({song.length}s)
+              {song.title} by {song.artist} - {song.genre} ({song.song_length}s)
             </li>
           ))}
         </ul>
