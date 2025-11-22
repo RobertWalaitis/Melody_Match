@@ -62,18 +62,23 @@ export async function getLikes() {
 export async function searchSongsByTitle(title) {
   if (!title) return [];
 
-  const res = await fetch(`${API_URL}/songs/search?title=${encodeURIComponent(title)}`);
-  
-  const text = await res.text(); // read raw text first
+  const res = await fetch(`${API_URL}/songs/search`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ title }) // send in body
+  });
+
   if (!res.ok) {
+    const text = await res.text();
     console.error("Server returned an error:", text);
-    throw new Error(`Failed to search songs: ${res.status}`);
+    throw new Error("Failed to search songs");
   }
 
   try {
-    return JSON.parse(text); // now parse safely
+    const data = await res.json();
+    return data;
   } catch (err) {
-    console.error("Failed to parse JSON from server:", text, "res: ", res);
-    throw err; // rethrow so the component can handle it
+    console.error("Failed to parse JSON from server:", err);
+    throw err;
   }
 }
