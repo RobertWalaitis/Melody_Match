@@ -49,7 +49,7 @@ function Home() {
           type="submit"
           style={{
             padding: "0.5rem 1rem",
-            backgroundColor: "#4CAF50",
+            backgroundColor: "#ac21b1",
             color: "white",
             border: "none",
             cursor: "pointer",
