@@ -18,9 +18,9 @@ let db;
     console.log("Database ready.");
 
     // Mount routes
-    app.use("/profile", profileRoutes(db));
-    app.use("/song", songRoutes(db));
-    app.use("/like", likedRoutes(db));
+    app.use("/api/profile", profileRoutes(db));
+    app.use("/api/song", songRoutes(db));
+    app.use("/api/like", likedRoutes(db));
 
     app.listen(3000, () => console.log("Server running on http://localhost:3000"));
 })();
