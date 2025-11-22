@@ -61,7 +61,19 @@ export async function getLikes() {
 
 export async function searchSongsByTitle(title) {
   if (!title) return [];
+
   const res = await fetch(`${API_URL}/songs/search?title=${encodeURIComponent(title)}`);
-  if (!res.ok) throw new Error("Failed to search songs");
-  return res.json();
+  
+  const text = await res.text(); // read raw text first
+  if (!res.ok) {
+    console.error("Server returned an error:", text);
+    throw new Error(`Failed to search songs: ${res.status}`);
+  }
+
+  try {
+    return JSON.parse(text); // now parse safely
+  } catch (err) {
+    console.error("Failed to parse JSON from server:", text);
+    throw err; // rethrow so the component can handle it
+  }
 }
