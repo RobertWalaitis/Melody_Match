@@ -61,7 +61,7 @@ export async function getLikes() {
 
 export async function searchSongsByTitle(title) {
   if (!title) return [];
-  const res = await fetch(`${API_URL}/song/search?title=${encodeURIComponent(title)}`);
+  const res = await fetch(`${API_URL}/songs/search?title=${encodeURIComponent(title)}`);
   if (!res.ok) throw new Error("Failed to search songs");
   return res.json();
 }
