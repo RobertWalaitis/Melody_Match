@@ -15,4 +15,6 @@ export default function songRoutes(db) {
         const song = await db.get("SELECT * FROM Song WHERE song_id = ?", [id]);
         res.json(song);
     });
+
+    return router;
 }

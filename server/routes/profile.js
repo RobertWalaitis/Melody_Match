@@ -47,22 +47,12 @@ export default function profileRoutes(db) {
     // --- LOGIN ROUTE ---
     router.post("/login", async (req, res) => {
         const { name, password } = req.body;
-
-        try {
-            const user = await db.get(
-                "SELECT * FROM Profile WHERE name = ? AND password = ?",
-                [name, password]
-            );
-
-            if (!user) {
-                return res.status(401).json({ message: "Invalid name or password" });
-            }
-
-            res.json(user);
-        } catch (err) {
-            console.error(err);
-            res.status(500).json({ message: "Server error" });
-        }
+        const user = await db.get(
+            "SELECT * FROM Profile WHERE name = ? AND password = ?",
+            [name, password]
+        );
+        if (!user) return res.status(401).json({ message: "Invalid name or password" });
+        res.json(user);
     });
 
     return router;
