@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import ProfileSettings from "./pages/ProfileSettings";
 import SongSearch from "./pages/SongSearch";
+import SeeAll from "./pages/SeeAll";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/profile-settings" element={<ProfileSettings />} />
         <Route path="/search" element={<SongSearch />} />
+        <Route path="/see-all" element={<SeeAll />} />
       </Routes>
     </Router>
   );

@@ -1,6 +1,5 @@
 const API_URL = "https://mst-4090-group-11-project-melody-match.onrender.com/api";
 
-// --- Profiles ---
 export async function getProfiles() {
   const res = await fetch(`${API_URL}/profiles`);
   if (!res.ok) throw new Error("Failed to fetch profiles");
@@ -25,8 +24,6 @@ export async function createProfile(name, password) {
   return res.json();
 }
 
-// --- Update profile ---
-// Change username
 export async function updateUsername(id, name) {
   const res = await fetch(`${API_URL}/profiles/${id}/username`, {
     method: "PUT",
@@ -36,7 +33,6 @@ export async function updateUsername(id, name) {
   return res.json();
 }
 
-// Change password
 export async function updatePassword(id, password) {
   const res = await fetch(`${API_URL}/profiles/${id}/password`, {
     method: "PUT",
@@ -46,7 +42,6 @@ export async function updatePassword(id, password) {
   return res.json();
 }
 
-// --- Songs ---
 export async function getSongs() {
   const res = await fetch(`${API_URL}/songs`);
   if (!res.ok) throw new Error("Failed to fetch songs");
@@ -58,9 +53,15 @@ export async function searchSongs(query) {
   return res.json();
 }
 
-// --- Liked songs ---
 export async function getLikes() {
   const res = await fetch(`${API_URL}/liked`);
   if (!res.ok) throw new Error("Failed to fetch liked songs");
+  return res.json();
+}
+
+export async function searchSongsByTitle(title) {
+  if (!title) return [];
+  const res = await fetch(`${API_URL}/songs/search?title=${encodeURIComponent(title)}`);
+  if (!res.ok) throw new Error("Failed to search songs");
   return res.json();
 }

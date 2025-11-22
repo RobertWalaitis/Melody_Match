@@ -1,44 +1,56 @@
 import React, { useState } from "react";
-import { searchSongs } from "../api";
+import { searchSongsByTitle } from "../api";
 import { useNavigate } from "react-router-dom";
 
 function SongSearch() {
-  const navigate = useNavigate();
   const [query, setQuery] = useState("");
-  const [songs, setSongs] = useState([]);
+  const [results, setResults] = useState([]);
+  const [msg, setMsg] = useState("");
+  const navigate = useNavigate();
 
   async function handleSearch() {
-    const results = await searchSongs(query);
-    setSongs(results);
+    if (!query) {
+      setMsg("Please enter a song name");
+      return;
+    }
+    try {
+      const songs = await searchSongsByTitle(query);
+      if (songs.length === 0) setMsg("No songs found");
+      else setMsg("");
+      setResults(songs);
+    } catch (err) {
+      setMsg(err.message || "Search failed");
+    }
   }
 
   return (
     <div style={{ padding: "2rem" }}>
-      <h1>Search for a Song</h1>
-
+      <h1>Search Songs</h1>
       <input
-        placeholder="Enter song name..."
+        placeholder="Enter song name"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
       />
-
-      <button onClick={handleSearch} style={{ marginLeft: "1rem" }}>
+      <button onClick={handleSearch} style={{ marginLeft: "0.5rem" }}>
         Search
       </button>
 
-      <ul style={{ marginTop: "1rem" }}>
-        {songs.map((s) => (
-          <li key={s.song_id}>
-            {s.title} — {s.artist}
+      {msg && <p>{msg}</p>}
+
+      <ul>
+        {results.map((song) => (
+          <li key={song.song_id}>
+            {song.title} by {song.artist} ({song.genre}, {song.song_length}s)
           </li>
         ))}
       </ul>
 
-      <br />
-      <button onClick={() => navigate("/")}>Home</button>
-      <button onClick={() => navigate("/profile-settings")} style={{ marginLeft: "1rem" }}>
-        Profile Settings
-      </button>
+      <div style={{ marginTop: "2rem" }}>
+        <button onClick={() => navigate("/")}>Back to Home</button>
+        <button onClick={() => navigate("/profile")} style={{ marginLeft: "1rem" }}>
+          Profile Settings
+        </button>
+      </div>
     </div>
   );
 }

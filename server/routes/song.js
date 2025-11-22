@@ -16,5 +16,16 @@ export default function songRoutes(db) {
         res.json(song);
     });
 
+    // Search songs by title (exact or partial)
+    router.get("/search", async (req, res) => {
+        const { title } = req.query;
+        if (!title) return res.status(400).json({ error: "Title is required" });
+        const songs = await db.all(
+            "SELECT * FROM Song WHERE title LIKE ?",
+            [`%${title}%`] // partial match
+        );
+        res.json(songs);
+    });
+
     return router;
 }
