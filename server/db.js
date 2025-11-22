@@ -1,90 +1,100 @@
-import fs from 'fs';
-import path from 'path';
-import sqlite3 from 'sqlite3';
-import { open } from 'sqlite';
-import csv from 'csv-parser';
-import { fileURLToPath } from 'url';
+import fs from "fs";
+import path from "path";
+import sqlite3 from "sqlite3";
+import { open } from "sqlite";
+import csv from "csv-parser";
+import { fileURLToPath } from "url";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Ensure a folder for database
-const dataDir = path.join(__dirname, 'data');
-if (!fs.existsSync(dataDir)) fs.mkdirSync(dataDir, { recursive: true });
+// Paths
+const dataDir = path.join(__dirname, "data");
+const dbPath = path.join(dataDir, "database.sqlite");
+const setupPath = path.join(__dirname, "setup.sql");
 
-const dbPath = path.join(dataDir, 'database.sqlite');
+// Ensure /data exists
+if (!fs.existsSync(dataDir)) {
+    fs.mkdirSync(dataDir, { recursive: true });
+}
 
+// Load a CSV file
+export function loadCSV(filename) {
+    const filePath = path.join(dataDir, filename);
+
+    return new Promise((resolve, reject) => {
+        if (!fs.existsSync(filePath)) return resolve([]);
+
+        const results = [];
+        fs.createReadStream(filePath)
+            .pipe(csv())
+            .on("data", row => results.push(row))
+            .on("end", () => resolve(results))
+            .on("error", reject);
+    });
+}
+
+// Seed database only if empty
+async function seedDB(db) {
+    console.log("Checking if seeding is needed…");
+
+    const existingProfiles = await db.all("SELECT * FROM Profiles");
+    if (existingProfiles.length > 0) {
+        console.log("Database already seeded. Skipping.");
+        return;
+    }
+
+    console.log("Seeding database from CSV files…");
+
+    // Profiles
+    const profiles = await loadCSV("profiles.csv");
+    for (const p of profiles) {
+        await db.run(
+            "INSERT INTO Profiles (profile_id, profile_name, profile_password) VALUES (?, ?, ?)",
+            [p.profile_id, p.name, p.password]
+        );
+    }
+
+    // Songs
+    const songs = await loadCSV("songs.csv");
+    for (const s of songs) {
+        await db.run(
+            "INSERT INTO Song (song_id, title, song_length, genre, artist) VALUES (?, ?, ?, ?, ?)",
+            [s.song_id, s.title, Number(s.song_length), s.genre, s.artist]
+        );
+    }
+
+    // Liked
+    const liked = await loadCSV("liked.csv");
+    for (const l of liked) {
+        await db.run(
+            "INSERT INTO Liked (liked_song_id, profile_user_id) VALUES (?, ?)",
+            [Number(l.liked_song_id), Number(l.profile_user_id)]
+        );
+    }
+
+    console.log("Database seeding complete.");
+}
+
+// Initialize DB
 export async function initDB() {
+    console.log("Opening SQLite database at:", dbPath);
+
     const db = await open({
         filename: dbPath,
         driver: sqlite3.Database
     });
 
-    // Run schema
-    const setupPath = path.join(__dirname, 'setup.sql');
+    // Setup schema
     if (fs.existsSync(setupPath)) {
-        const setupSQL = fs.readFileSync(setupPath, 'utf8');
-        await db.exec(setupSQL);
+        const schema = fs.readFileSync(setupPath, "utf8");
+        await db.exec(schema);
     } else {
-        console.warn("setup.sql not found, skipping schema setup.");
+        console.error("setup.sql not found!");
     }
 
-    // Seed database from CSV
+    // Seed if empty
     await seedDB(db);
 
     return db;
 }
-
-// Reads CSV and filters out empty rows
-export async function loadCSV(filename) {
-    const filePath = path.join(dataDir, filename);
-    if (!fs.existsSync(filePath)) return [];
-
-    const results = [];
-    return new Promise((resolve, reject) => {
-        fs.createReadStream(filePath)
-            .pipe(csv())
-            .on('data', row => {
-                if (Object.values(row).some(v => v !== "" && v !== null)) results.push(row);
-            })
-            .on('end', () => resolve(results))
-            .on('error', reject);
-    });
-}
-
-// Automatic CSV seeding
-async function seedDB(db) {
-    // Profiles
-    const profiles = await loadCSV('profiles.csv');
-    for (const p of profiles) {
-        await db.run(
-            'INSERT INTO Profiles (profile_id, profile_name, profile_password) VALUES (?, ?, ?)',
-            [p.profile_id, p.profile_name, p.profile_password]
-        );
-    }
-
-    // Songs
-    const songs = await loadCSV('songs.csv');
-    for (const s of songs) {
-        await db.run(
-            'INSERT INTO Song (song_id, title, song_length, genre, artist) VALUES (?, ?, ?, ?, ?)',
-            [s.song_id, s.title, parseInt(s.song_length), s.genre, s.artist]
-        );
-    }
-
-    // Liked
-    const liked = await loadCSV('liked.csv');
-    for (const l of liked) {
-        await db.run(
-            'INSERT INTO Liked (liked_song_id, profile_user_id) VALUES (?, ?)',
-            [parseInt(l.liked_song_id), parseInt(l.profile_user_id)]
-        );
-    }
-
-    console.log('Database seeded from CSVs');
-}
-
-export default {
-    initDB,
-    loadCSV
-};
