@@ -33,8 +33,8 @@ async function seedDatabase(db) {
   await db.run("DELETE FROM Song");
   await db.run("DELETE FROM Profile");
 
-  // Profiles
-  const profiles = await readCSV(path.join("data", "profiles.csv"));
+  // Profile
+  const profiles = await readCSV(path.join("data", "profile.csv"));
   for (const p of profiles) {
     await db.run("INSERT INTO Profile (name, password) VALUES (?, ?)", [
       p.name,
