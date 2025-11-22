@@ -3,6 +3,12 @@ import express from "express";
 export default function likedRoutes(db) {
     const router = express.Router();
 
+    // Get all like songs
+    router.get("/", async (req, res) => {
+        const liked = await db.all("SELECT * FROM Liked");
+        res.json(liked);
+    });
+    
     // Like a song
     router.post("/", async (req, res) => {
         const { user_id, song_id } = req.body;
