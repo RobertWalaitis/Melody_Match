@@ -17,6 +17,14 @@ if (!fs.existsSync(dataDir)) {
     fs.mkdirSync(dataDir, { recursive: true });
 }
 
+function trimRow(row) {
+    const clean = {};
+    for (const key in row) {
+        clean[key.trim()] = String(row[key]).trim();
+    }
+    return clean;
+}
+
 // Load a CSV file
 export async function loadCSV(filename) {
     const filePath = path.join(dataDir, filename);
@@ -27,7 +35,7 @@ export async function loadCSV(filename) {
 
         fs.createReadStream(filePath)
             .pipe(csv())
-            .on("data", (row) => rows.push(row))
+            .on("data", (row) => rows.push(trimRow(row)))
             .on("end", () => resolve(rows))
             .on("error", reject);
     });
@@ -61,6 +69,7 @@ async function resetAndSeed(db) {
     // Seed Songs
     const songs = await loadCSV("songs.csv");
     for (const s of songs) {
+        console.log(s);
         await db.run(
             `INSERT INTO Song (song_id, title, song_length, artist)
              VALUES (?, ?, ?, ?)`,

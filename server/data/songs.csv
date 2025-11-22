@@ -1,54 +1,11 @@
-song_id    title	song_length	artist
-1	Go!	154	Plumtree
-2	You Just Dont Exist	198	Plumtree
-3	Racing Gloves	262	Plumtree
-4	Effin	167	Plumtree
-5	Hang Up Baby	154	Plumtree
-6	I Love You When Youre Walking Away	157	Plumtree
-7	Fatherhood	166	Plumtree
-8	The Games Over	223	Plumtree
-9	Scott Pilgrim	184	Plumtree
-10	Going So Low	196	Plumtree
-11	Why Wont You Stop?	178	Plumtree
-12	Your Mouth Shoots Off	164	Plumtree
-13	So Far Away	312	Dire Straits
-14	Money for Nothing	506	Dire Straits
-15	Walk of Life	252	Dire Straits
-16	Your Latest Trick	393	Dire Straits
-17	Why Worry	511	Dire Straits
-18	Ride Across the River	417	Dire Straits
-19	The Mans Too Strong	270	Dire Straits
-20	One World	220	Dire Straits
-21	Brothers in Arms	419	Dire Straits
-22	Hit The Lights	255	Metallica
-23	The Four Horsemen	432	Metallica
-24	Motorbreath	187	Metallica
-25	Jump In The Fire	281	Metallica
-26	(Anesthesia)--Pulling Teeth	254	Metallica
-27	Whiplash	248	Metallica
-28	Phantom Lord	301	Metallica
-29	No Remorse	386	Metallica
-30	Seek & Destroy	414	Metallica
-31	Metal Militia	311	Metallica
-32	Fight Fire With Fire	284	Metallica
-33	Ride The Lightning	516	Metallica
-34	For Whom The Bell Tolls	309	Metallica
-35	Fade To Black	537	Metallica
-36	Trapped Under Ice	244	Metallica
-37	Escape	263	Metallica
-38	Creeping Death	515	Metallica
-39	The Call Of Ktulu	533	Metallica
-40	Dreamer	210	Laufey
-41	Second Best	204	Laufey
-42	Haunted	284	Laufey
-43	Must Be Love	200	Laufey
-44	While You Were Sleeping	184	Laufey
-45	Lovesick	177	Laufey
-46	California and Me	225	Laufey
-47	Nocturne (Interlude)	216	Laufey
-48	Promise	234	Laufey
-49	From The Start	164	Laufey
-50	Misty	209	Laufey
-51	Serendipity	219	Laufey
-52	Letter To My 13 Year Old Self	262	Laufey
-53	Bewitched	246	Laufey
+song_id, title, song_length, artist
+1, Go!, 154, Plumtree
+2, You Just Dont Exist, 198, Plumtree
+3, Racing Gloves, 262, Plumtree
+4, Effin, 167, Plumtree
+5, Hang Up Baby, 154, Plumtree
+6, I Love You When Youre Walking Away, 157, Plumtree
+7, Fatherhood, 166, Plumtree
+8, The Games Over, 223, Plumtree
+9, Scott Pilgrim, 184, Plumtree
+10, Going So Low, 196, Plumtree
