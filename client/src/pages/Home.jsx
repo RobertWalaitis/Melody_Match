@@ -13,7 +13,7 @@ function Home() {
     if (!res.success) {
       setMessage("Invalid name or password");
     } else {
-      localStorage.setItem("user_id", res.user.user_id);
+      localStorage.setItem("profile_id", res.profile.profile_id);
       navigate("/profile-settings");
     }
   }

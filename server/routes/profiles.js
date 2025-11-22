@@ -24,7 +24,7 @@ export default function profileRoutes(db) {
             "INSERT INTO Profiles (profile_name, profile_password) VALUES (?, ?)",
             [name, password]
         );
-        res.json({ success: true, user_id: result.lastID });
+        res.json({ success: true, profile_id: result.lastID });
     });
 
     // Update a profile
@@ -48,12 +48,13 @@ export default function profileRoutes(db) {
     // --- LOGIN ROUTE ---
     router.post("/login", async (req, res) => {
         const { name, password } = req.body;
-        const user = await db.get(
+        console.log("Login attempt for:", name, "with password:", password);
+        const profile = await db.get(
             "SELECT * FROM Profiles WHERE profile_name = ? AND profile_password = ?",
             [name, password]
         );
-        if (!user) return res.status(401).json({ message: "Invalid name or password" });
-        res.json(user);
+        if (!profile) return res.status(401).json({ message: "Invalid name or password" });
+        res.json(profile);
     });
 
     return router;

@@ -4,16 +4,16 @@ import { useNavigate } from "react-router-dom";
 
 function ProfileSettings() {
   const navigate = useNavigate();
-  const user_id = localStorage.getItem("user_id");
+  const profile_id = localStorage.getItem("profile_id");
   const [newName, setNewName] = useState("");
   const [msg, setMsg] = useState("");
 
-  if (!user_id) {
+  if (!profile_id) {
     return <p>You are not logged in.</p>;
   }
 
   async function handleUpdate() {
-    const res = await updateProfile(user_id, newName);
+    const res = await updateProfile(profile_id, newName);
     if (res.success) {
       setMsg("Name updated successfully");
     }
