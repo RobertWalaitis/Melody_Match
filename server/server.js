@@ -1,31 +1,26 @@
 import express from "express";
 import cors from "cors";
-import pool from "./db.js"; // import the pool here
+import { initDB } from "./db.js";
+
+import profileRoutes from "./routes/profile.js";
+import songRoutes from "./routes/song.js";
+import likedRoutes from "./routes/liked.js";
 
 const app = express();
-const PORT = process.env.PORT || 5000;
-
 app.use(cors());
-app.use(express.json()); // for parsing JSON request bodies
+app.use(express.json());
 
-// ===== ROUTES =====
+let db;
 
-// Test route
-app.get("/", (req, res) => {
-  res.send("Backend is live!");
-});
+(async () => {
+    db = await initDB();
+    await db.exec("PRAGMA foreign_keys = ON;"); // enforce FK
+    console.log("Database ready.");
 
-// Users route using your snippet
-app.get("/api/users", async (req, res) => {
-  try {
-    const { rows } = await pool.query("SELECT * FROM users");
-    res.json(rows);
-  } catch (err) {
-    res.status(500).json({ error: err.message });
-  }
-});
+    // Mount routes
+    app.use("/profile", profileRoutes(db));
+    app.use("/song", songRoutes(db));
+    app.use("/like", likedRoutes(db));
 
-// Start server
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+    app.listen(3000, () => console.log("Server running on http://localhost:3000"));
+})();

@@ -5,7 +5,7 @@ function Home() {
   const navigate = useNavigate();
 
   const goToTextPage = () => {
-    navigate("/text"); // navigates to the textbox page
+    navigate("/text");
   };
 
   return (
