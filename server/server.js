@@ -26,9 +26,6 @@ let db;
   await db.exec("PRAGMA foreign_keys = ON;");
   console.log("Database ready.");
 
-  // Seed DB
-  await seedDatabase(db);
-
   // Mount API routes
   app.use("/api/profile", profileRoutes(db));
   app.use("/api/song", songRoutes(db));
