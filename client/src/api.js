@@ -73,7 +73,7 @@ export async function searchSongsByTitle(title) {
   try {
     return JSON.parse(text); // now parse safely
   } catch (err) {
-    console.error("Failed to parse JSON from server:", text);
+    console.error("Failed to parse JSON from server:", text, "res: ", res);
     throw err; // rethrow so the component can handle it
   }
 }
