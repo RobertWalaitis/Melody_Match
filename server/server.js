@@ -47,7 +47,7 @@ async function seedDatabase(db) {
   const songs = await readCSV(path.join("data", "songs.csv"));
   for (const s of songs) {
     await db.run(
-      "INSERT INTO Song (song_id, title, length, genre, artist) VALUES (?, ?, ?, ?, ?)",
+      "INSERT INTO Song (song_id, title, song_length, genre, artist) VALUES (?, ?, ?, ?, ?)",
       [s.song_id, s.title, parseInt(s.song_length), s.genre, s.artist]
     );
   }
