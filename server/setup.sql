@@ -14,5 +14,5 @@ CREATE TABLE Song (
 
 CREATE TABLE Liked (
     liked_song_id INTEGER references Song(song_id),
-    profile_user_id INTEGER references Profiles(user_id)
+    profile_user_id INTEGER references Profiles(profile_id)
 );
