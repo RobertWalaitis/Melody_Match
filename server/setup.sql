@@ -8,7 +8,6 @@ CREATE TABLE Song (
     song_id INTEGER PRIMARY KEY,
     title varchar(100),
     song_length INTEGER,
-    genre varchar(100),
     artist varchar(100)
 );
 
