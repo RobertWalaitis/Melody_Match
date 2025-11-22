@@ -3,7 +3,7 @@ import cors from "cors";
 import { initDB } from "./db.js";
 
 import profilesRouter from "./routes/profiles.js";
-import songRouter from "./routes/song.js";
+import songRouter from "./routes/songs.js";
 import likedRouter from "./routes/liked.js";
 
 const app = express();
