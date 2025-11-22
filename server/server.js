@@ -35,6 +35,7 @@ async function seedDatabase(db) {
 
   // Profile
   const profiles = await readCSV(path.join("data", "profiles.csv"));
+  console.log(profiles);
   for (const p of profiles) {
     await db.run("INSERT INTO Profiles (profile_id, profile_name, profile_password) VALUES (?, ?, ?)", [
       p.profile_id,
@@ -45,6 +46,7 @@ async function seedDatabase(db) {
 
   // Songs
   const songs = await readCSV(path.join("data", "songs.csv"));
+  console.log(songs);
   for (const s of songs) {
     await db.run(
       "INSERT INTO Song (song_id, title, song_length, genre, artist) VALUES (?, ?, ?, ?, ?)",
@@ -54,6 +56,7 @@ async function seedDatabase(db) {
 
   // Liked
   const liked = await readCSV(path.join("data", "liked.csv"));
+  console.log(liked);
   for (const l of liked) {
     await db.run(
       "INSERT INTO Liked (liked_song_id, profile_user_id) VALUES (?, ?)",
