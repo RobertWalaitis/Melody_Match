@@ -22,12 +22,30 @@ export async function login(name, password) {
   const res = await fetch(`${API_URL}/profiles/login`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ name, password }),
+    body: JSON.stringify({ name, password })
   });
+  return res.json();
+}
 
-  if (!res.ok) {
-    const data = await res.json();
-    throw new Error(data.message || "Login failed");
-  }
+export async function createProfile(name, password) {
+  const res = await fetch(`${API_URL}/profiles`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ name, password })
+  });
+  return res.json();
+}
+
+export async function updateProfile(id, name) {
+  const res = await fetch(`${API_URL}/profiles/${id}`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ name })
+  });
+  return res.json();
+}
+
+export async function searchSongs(query) {
+  const res = await fetch(`${API_URL}/song?title=${encodeURIComponent(query)}`);
   return res.json();
 }
