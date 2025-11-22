@@ -5,14 +5,14 @@ export default function profileRoutes(db) {
 
     // Get all profiles
     router.get("/", async (req, res) => {
-        const profiles = await db.all("SELECT * FROM Profile");
+        const profiles = await db.all("SELECT * FROM Profiles");
         res.json(profiles);
     });
 
     // Get a single profile
     router.get("/:id", async (req, res) => {
         const { id } = req.params;
-        const profile = await db.get("SELECT * FROM Profile WHERE user_id = ?", [id]);
+        const profile = await db.get("SELECT * FROM Profiles WHERE user_id = ?", [id]);
         res.json(profile);
     });
 
@@ -20,7 +20,7 @@ export default function profileRoutes(db) {
     router.post("/", async (req, res) => {
         const { name, password } = req.body;
         const result = await db.run(
-            "INSERT INTO Profile (name, password) VALUES (?, ?)",
+            "INSERT INTO Profiles (name, password) VALUES (?, ?)",
             [name, password]
         );
         res.json({ success: true, user_id: result.lastID });
@@ -31,7 +31,7 @@ export default function profileRoutes(db) {
         const { id } = req.params;
         const { name, password } = req.body;
         await db.run(
-            "UPDATE Profile SET name = ?, password = ? WHERE user_id = ?",
+            "UPDATE Profiles SET name = ?, password = ? WHERE user_id = ?",
             [name, password, id]
         );
         res.json({ success: true });
@@ -40,7 +40,7 @@ export default function profileRoutes(db) {
     // Delete a profile
     router.delete("/:id", async (req, res) => {
         const { id } = req.params;
-        await db.run("DELETE FROM Profile WHERE user_id = ?", [id]);
+        await db.run("DELETE FROM Profiles WHERE user_id = ?", [id]);
         res.json({ success: true });
     });
 
@@ -48,7 +48,7 @@ export default function profileRoutes(db) {
     router.post("/login", async (req, res) => {
         const { name, password } = req.body;
         const user = await db.get(
-            "SELECT * FROM Profile WHERE name = ? AND password = ?",
+            "SELECT * FROM Profiles WHERE name = ? AND password = ?",
             [name, password]
         );
         if (!user) return res.status(401).json({ message: "Invalid name or password" });
