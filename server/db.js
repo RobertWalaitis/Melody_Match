@@ -8,59 +8,50 @@ import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Paths
 const dataDir = path.join(__dirname, "data");
 const dbPath = path.join(dataDir, "database.sqlite");
 const setupPath = path.join(__dirname, "setup.sql");
 
-// Ensure /data exists
-if (!fs.existsSync(dataDir)) {
-    fs.mkdirSync(dataDir, { recursive: true });
-}
 
-// Load a CSV file
-export function loadCSV(filename) {
+export async function loadCSV(filename) {
     const filePath = path.join(dataDir, filename);
 
     return new Promise((resolve, reject) => {
+        const rows = [];
         if (!fs.existsSync(filePath)) return resolve([]);
 
-        const results = [];
         fs.createReadStream(filePath)
             .pipe(csv())
-            .on("data", row => results.push(row))
-            .on("end", () => resolve(results))
+            .on("data", row => rows.push(row))
+            .on("end", () => resolve(rows))
             .on("error", reject);
     });
 }
 
-// Seed database only if empty
 async function seedDB(db) {
-    console.log("Checking if seeding is needed…");
-
-    const existingProfiles = await db.all("SELECT * FROM Profiles");
-    if (existingProfiles.length > 0) {
-        console.log("Database already seeded. Skipping.");
+    const existing = await db.get("SELECT COUNT(*) AS count FROM Profiles");
+    if (existing.count > 0) {
+        console.log("Database already seeded.");
         return;
     }
 
-    console.log("Seeding database from CSV files…");
+    console.log("Seeding database...");
 
     // Profiles
     const profiles = await loadCSV("profiles.csv");
     for (const p of profiles) {
         await db.run(
             "INSERT INTO Profiles (profile_id, profile_name, profile_password) VALUES (?, ?, ?)",
-            [p.profile_id, p.name, p.password]
+            [Number(p.profile_id), p.profile_name, p.profile_password]
         );
     }
 
-    // Songs
+    // Song
     const songs = await loadCSV("songs.csv");
     for (const s of songs) {
         await db.run(
-            "INSERT INTO Song (song_id, title, song_length, genre, artist) VALUES (?, ?, ?, ?, ?)",
-            [s.song_id, s.title, Number(s.song_length), s.genre, s.artist]
+            "INSERT INTO Song (song_id, title, song_length, artist) VALUES (?, ?, ?, ?)",
+            [Number(s.song_id), s.title, Number(s.song_length), s.artist]
         );
     }
 
@@ -73,27 +64,20 @@ async function seedDB(db) {
         );
     }
 
-    console.log("Database seeding complete.");
+    console.log("Seeding complete.");
 }
 
-// Initialize DB
 export async function initDB() {
-    console.log("Opening SQLite database at:", dbPath);
-
     const db = await open({
         filename: dbPath,
         driver: sqlite3.Database
     });
 
-    // Setup schema
-    if (fs.existsSync(setupPath)) {
-        const schema = fs.readFileSync(setupPath, "utf8");
-        await db.exec(schema);
-    } else {
-        console.error("setup.sql not found!");
-    }
+    // Run schema
+    const schema = fs.readFileSync(setupPath, "utf8");
+    await db.exec(schema);
 
-    // Seed if empty
+    // Seed
     await seedDB(db);
 
     return db;
