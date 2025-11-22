@@ -7,13 +7,13 @@ export async function getProfiles() {
 }
 
 export async function getSongs() {
-  const res = await fetch(`${API_URL}/song`);
+  const res = await fetch(`${API_URL}/songs`);
   if (!res.ok) throw new Error("Failed to fetch songs");
   return res.json();
 }
 
 export async function getLikes() {
-  const res = await fetch(`${API_URL}/like`);
+  const res = await fetch(`${API_URL}/liked`);
   if (!res.ok) throw new Error("Failed to fetch liked songs");
   return res.json();
 }
