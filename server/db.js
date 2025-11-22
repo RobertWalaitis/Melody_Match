@@ -69,7 +69,6 @@ async function resetAndSeed(db) {
     // Seed Songs
     const songs = await loadCSV("songs.csv");
     for (const s of songs) {
-        console.log(s);
         await db.run(
             `INSERT INTO Song (song_id, title, song_length, artist)
              VALUES (?, ?, ?, ?)`,

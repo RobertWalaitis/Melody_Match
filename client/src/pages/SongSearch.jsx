@@ -1,56 +1,68 @@
+// src/pages/SongSearch.jsx
 import React, { useState } from "react";
 import { searchSongsByTitle } from "../api";
-import { useNavigate } from "react-router-dom";
 
 function SongSearch() {
   const [query, setQuery] = useState("");
-  const [results, setResults] = useState([]);
-  const [msg, setMsg] = useState("");
-  const navigate = useNavigate();
+  const [songs, setSongs] = useState([]);
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
   async function handleSearch() {
-    if (!query) {
-      setMsg("Please enter a song name");
+    if (!query.trim()) {
+      setError("Please enter a song title");
+      setSongs([]);
       return;
     }
+
+    setError("");
+    setLoading(true);
     try {
-      const songs = await searchSongsByTitle(query);
-      if (songs.length === 0) setMsg("No songs found");
-      else setMsg("");
-      setResults(songs);
+      const results = await searchSongsByTitle(query.trim());
+      setSongs(results);
+      if (results.length === 0) {
+        setError("No songs found");
+      }
     } catch (err) {
-      setMsg(err.message || "Search failed");
+      console.error("Search error:", err);
+      setError("Failed to search songs. See console for details.");
+      setSongs([]);
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  function handleKeyDown(e) {
+    if (e.key === "Enter") {
+      handleSearch();
     }
   }
 
   return (
     <div style={{ padding: "2rem" }}>
       <h1>Search Songs</h1>
+
       <input
-        placeholder="Enter song name"
+        type="text"
+        placeholder="Enter song title"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
+        onKeyDown={handleKeyDown}
+        style={{ marginRight: "1rem", padding: "0.5rem", width: "300px" }}
       />
-      <button onClick={handleSearch} style={{ marginLeft: "0.5rem" }}>
-        Search
+      <button onClick={handleSearch} disabled={loading}>
+        {loading ? "Searching..." : "Search"}
       </button>
 
-      {msg && <p>{msg}</p>}
+      {error && <p style={{ color: "red" }}>{error}</p>}
 
-      <ul>
-        {results.map((song) => (
+      <ul style={{ marginTop: "1rem" }}>
+        {songs.map((song) => (
           <li key={song.song_id}>
-            {song.title} by {song.artist} ({song.genre}, {song.song_length}s)
+            <strong>{song.title}</strong> by {song.artist} - {song.genre} ({song.song_length}s)
           </li>
         ))}
       </ul>
-
-      <div style={{ marginTop: "2rem" }}>
-        <button onClick={() => navigate("/")}>Back to Home</button>
-        <button onClick={() => navigate("/profile")} style={{ marginLeft: "1rem" }}>
-          Profile Settings
-        </button>
-      </div>
     </div>
   );
 }
