@@ -6,6 +6,7 @@ export default function profileRoutes(db) {
     // Get all profiles
     router.get("/", async (req, res) => {
         const profiles = await db.all("SELECT * FROM Profiles");
+        console.log("Sending profiles:", profiles);
         res.json(profiles);
     });
 
