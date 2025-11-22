@@ -2,7 +2,7 @@ import express from "express";
 import cors from "cors";
 import { initDB } from "./db.js";
 
-import profileRoutes from "./routes/profile.js";
+import profileRoutes from "./routes/profiles.js";
 import songRoutes from "./routes/song.js";
 import likedRoutes from "./routes/liked.js";
 
@@ -31,12 +31,12 @@ async function seedDatabase(db) {
   // Optional: clear tables first
   await db.run("DELETE FROM Liked");
   await db.run("DELETE FROM Song");
-  await db.run("DELETE FROM Profile");
+  await db.run("DELETE FROM Profiles");
 
   // Profile
   const profiles = await readCSV(path.join("data", "profiles.csv"));
   for (const p of profiles) {
-    await db.run("INSERT INTO Profile (profile_id, profile_name, profile_password) VALUES (?, ?, ?)", [
+    await db.run("INSERT INTO Profiles (profile_id, profile_name, profile_password) VALUES (?, ?, ?)", [
       p.profile_id,
       p.profile_name,
       p.profile_password,
@@ -73,7 +73,7 @@ async function seedDatabase(db) {
   await seedDatabase(db);
 
   // Mount routes
-  app.use("/api/profile", profileRoutes(db));
+  app.use("/api/profiles", profileRoutes(db));
   app.use("/api/song", songRoutes(db));
   app.use("/api/like", likedRoutes(db));
 
