@@ -1,68 +1,69 @@
 // src/pages/Home.jsx
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { login } from "../api"; // import login function from api.js
+import React, { useEffect, useState } from "react";
+import { getUsers, getSongs, getLikes } from "../api";
 
 function Home() {
-  const [name, setName] = useState("");
-  const [password, setPassword] = useState("");
+  const [users, setUsers] = useState([]);
+  const [songs, setSongs] = useState([]);
+  const [likes, setLikes] = useState([]);
   const [error, setError] = useState("");
-  const navigate = useNavigate();
 
-  const handleLogin = async (e) => {
-    e.preventDefault();
-    setError("");
-
-    try {
-      const user = await login(name, password); // call deployed API
-      navigate("/text", { state: { user } }); // redirect with user info
-    } catch (err) {
-      setError(err.message || "Login failed");
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const [usersData, songsData, likesData] = await Promise.all([
+          getUsers(),
+          getSongs(),
+          getLikes()
+        ]);
+        setUsers(usersData);
+        setSongs(songsData);
+        setLikes(likesData);
+      } catch (err) {
+        setError(err.message || "Failed to fetch data");
+      }
     }
-  };
+
+    fetchData();
+  }, []);
 
   return (
-    <div style={{ padding: "2rem", maxWidth: "400px", margin: "0 auto" }}>
-      <h1>Login</h1>
-      <form onSubmit={handleLogin}>
-        <div style={{ marginBottom: "1rem" }}>
-          <label>Name:</label>
-          <input
-            type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            required
-            style={{ width: "100%", padding: "0.5rem", marginTop: "0.3rem" }}
-          />
-        </div>
-        <div style={{ marginBottom: "1rem" }}>
-          <label>Password:</label>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-            style={{ width: "100%", padding: "0.5rem", marginTop: "0.3rem" }}
-          />
-        </div>
-        <button
-          type="submit"
-          style={{
-            padding: "0.5rem 1rem",
-            backgroundColor: "#ac21b1",
-            color: "white",
-            border: "none",
-            cursor: "pointer",
-          }}
-        >
-          Login
-        </button>
-      </form>
-      {error && (
-        <p style={{ color: "red", marginTop: "1rem" }}>
-          {error}
-        </p>
-      )}
+    <div style={{ padding: "2rem" }}>
+      <h1>Homepage</h1>
+      {error && <p style={{ color: "red" }}>{error}</p>}
+
+      <section style={{ marginBottom: "2rem" }}>
+        <h2>Users</h2>
+        <ul>
+          {users.map((user) => (
+            <li key={user.user_id}>
+              {user.name} (ID: {user.user_id})
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section style={{ marginBottom: "2rem" }}>
+        <h2>Songs</h2>
+        <ul>
+          {songs.map((song) => (
+            <li key={song.song_id}>
+              {song.title} by {song.artist} - {song.genre} ({song.length}s)
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section>
+        <h2>Liked Songs</h2>
+        <ul>
+          {likes.map((like, index) => (
+            <li key={index}>
+              Song ID: {like.liked_song_id}, User ID: {like.profile_user_id}
+            </li>
+          ))}
+        </ul>
+      </section>
     </div>
   );
 }

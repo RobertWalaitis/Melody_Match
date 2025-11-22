@@ -17,6 +17,17 @@ export async function login(name, password) {
     const data = await res.json();
     throw new Error(data.message || "Login failed");
   }
+  return res.json();
+}
 
+export async function getSongs() {
+  const res = await fetch(`${API_URL}/song`);
+  if (!res.ok) throw new Error("Failed to fetch songs");
+  return res.json();
+}
+
+export async function getLikes() {
+  const res = await fetch(`${API_URL}/like`);
+  if (!res.ok) throw new Error("Failed to fetch liked songs");
   return res.json();
 }
