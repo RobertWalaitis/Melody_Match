@@ -60,7 +60,7 @@ export default function songsRouter(db) {
     // Search songs by title (exact or partial)
     router.get("/search/title/", async (req, res) => {
         const { title , user_id} = req.query;   // REQUIRED for weighting
-
+        console.log(`Attempting Search by Title ${title} and userID ${user_id}`)
         try {
             // Step 1: fetch songs that match
             const songs = await db.all(
@@ -88,7 +88,7 @@ export default function songsRouter(db) {
 
     router.get("/search/artist", async (req, res) => {
         const { artist , user_id} = req.query;
-
+        console.log(`Attempting Search by Artist ${artist} and userID ${user_id}`)
         try {
             const songs = await db.all(
             `SELECT * FROM Song WHERE artist LIKE ?`,
@@ -111,7 +111,7 @@ export default function songsRouter(db) {
 
     router.get("/search/length", async (req, res) => {
         const { comparison, value, user_id } = req.query;
-
+        console.log(`Attempting Search of Comparison ${comparison} Value ${value} and userID ${user_id}`)
         try {
             const songs = await db.all(
             `SELECT * FROM Song WHERE song_length ${comparison} ?`,
