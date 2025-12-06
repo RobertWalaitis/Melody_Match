@@ -13,7 +13,7 @@ function App() {
     <Router basename={process.env.PUBLIC_URL}>
       <Routes>
         <Route path="/" element={<Login />} />
-        <Route path="/home" element={<HomePage />} />
+        <Route path="/home" element={<Home />} />
         <Route path="/profile-settings" element={<ProfileSettings />} />
         <Route path="/search" element={<SongSearch />} />
         <Route path="/liked" element={<LikedSongs />} />
