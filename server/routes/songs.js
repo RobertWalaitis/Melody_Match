@@ -1,4 +1,4 @@
-module.exports = function (db) {
+export default function songsRouter(db) {
   const express = require("express");
   const router = express.Router();
 
