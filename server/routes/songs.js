@@ -58,9 +58,8 @@ export default function songsRouter(db) {
     });
 
     // Search songs by title (exact or partial)
-    router.get("/search/title/:title", async (req, res) => {
-        const { title } = req.params;
-        const user_id = req.query.user_id;   // REQUIRED for weighting
+    router.get("/search/title/", async (req, res) => {
+        const { title , user_id} = req.query;   // REQUIRED for weighting
 
         try {
             // Step 1: fetch songs that match
@@ -87,9 +86,8 @@ export default function songsRouter(db) {
         }
     });
 
-    router.get("/search/artist/:artist", async (req, res) => {
-        const { artist } = req.params;
-        const user_id = req.query.user_id;
+    router.get("/search/artist", async (req, res) => {
+        const { artist , user_id} = req.query;
 
         try {
             const songs = await db.all(

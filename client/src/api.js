@@ -80,13 +80,13 @@ export async function unlikeSong(user_id, song_id) {
 
 const profile_id = localStorage.getItem("profile_id");
 
-export async function searchSongsByTitle(title) {
-  const res = await fetch(`${API_URL}/songs/title/${title}?user_id=${profile_id}`);
+export async function searchSongsByTitle(title, profile_id) {
+  const res = await fetch(`${API_URL}/songs/title?title=${title}&user_id=${profile_id}`);
   return res.json();
 }
 
-export async function searchSongsByArtist(artist) {
-  const res = await fetch(`${API_URL}/songs/artist/${artist}?user_id=${profile_id}`);
+export async function searchSongsByArtist(artist, profile_id) {
+  const res = await fetch(`${API_URL}/songs/artist?artist=${artist}&user_id=${profile_id}`);
   return res.json();
 }
 
