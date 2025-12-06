@@ -1,6 +1,6 @@
 // src/pages/SeeAll.jsx
 import React, { useEffect, useState } from "react";
-import { getProfiles, getSongs, getLikes } from "../api";
+import { getProfiles, getSongs, getAllLikes } from "../api";
 
 function SeeAll() {
   const [profiles, setProfiles] = useState([]);
