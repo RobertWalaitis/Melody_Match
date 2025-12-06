@@ -14,7 +14,7 @@ function SeeAll() {
         const [profilesData, songsData, likesData] = await Promise.all([
           getProfiles(),
           getSongs(),
-          getLikes()
+          getAllLikes()
         ]);
         console.log("Profiles:", profilesData);
         console.log("Songs:", songsData);

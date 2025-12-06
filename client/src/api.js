@@ -53,9 +53,28 @@ export async function searchSongs(query) {
   return res.json();
 }
 
-export async function getLikes() {
+export async function getAllLikes() {
   const res = await fetch(`${API_URL}/liked`);
   if (!res.ok) throw new Error("Failed to fetch liked songs");
+  return res.json();
+}
+
+export async function getLikes(profile_id) {
+  const res = await fetch(`${API_URL}/liked/${profile_id}`);
+  if (!res.ok) throw new Error("Failed to fetch liked songs");
+  return res.json();
+}
+
+export async function unlikeSong(user_id, song_id) {
+  const res = await fetch(`${API_URL}/liked`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ user_id, song_id })
+  });
+
+  if (!res.ok) throw new Error("Failed to unlike song");
   return res.json();
 }
 
