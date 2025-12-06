@@ -1,9 +1,6 @@
-import express from "express";
-
-
-
-export default function songRoutes(db) {
-    const router = express.Router();
+module.exports = function (db) {
+  const express = require("express");
+  const router = express.Router();
 
     async function getUserLikedArtists(db, user_id) {
       const rows = await db.all(
