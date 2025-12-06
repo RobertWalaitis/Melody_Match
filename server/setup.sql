@@ -8,7 +8,10 @@ CREATE TABLE IF NOT EXISTS Song (
     song_id INTEGER PRIMARY KEY,
     title varchar(100),
     song_length INTEGER,
-    artist varchar(100)
+    artist varchar(100),
+    genre varchar(100),
+    release_year INTEGER
+
 );
 
 CREATE TABLE IF NOT EXISTS Liked (
