@@ -78,22 +78,19 @@ export async function unlikeSong(user_id, song_id) {
   return res.json();
 }
 
+const profile_id = localStorage.getItem("profile_id");
+
 export async function searchSongsByTitle(title) {
-  const res = await fetch(`${API_URL}/songs/search/title/${title}`);
-  if (!res.ok) throw new Error("Failed to search by title");
+  const res = await fetch(`${API_URL}/songs/title/${title}?user_id=${profile_id}`);
   return res.json();
 }
 
 export async function searchSongsByArtist(artist) {
-  const res = await fetch(`${API_URL}/songs/search/artist/${artist}`);
-  if (!res.ok) throw new Error("Failed to search songs by artist");
+  const res = await fetch(`${API_URL}/songs/artist/${artist}?user_id=${profile_id}`);
   return res.json();
 }
 
-export async function searchSongsByLength(comparison, length) {
-  const res = await fetch(
-    `${API_URL}/songs/search/length?comparison=${comparison}&value=${length}`
-  );
-  if (!res.ok) throw new Error("Failed to search songs by length");
+export async function searchSongsByLength(comparison, value) {
+  const res = await fetch(`${API_URL}/songs/length?comparison=${comparison}&value=${value}&user_id=${profile_id}`);
   return res.json();
 }
