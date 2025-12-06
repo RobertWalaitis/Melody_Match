@@ -17,24 +17,56 @@ export default function songRoutes(db) {
     });
 
     // Search songs by title (exact or partial)
-    router.post("/search", async (req, res) => {
+    router.get("/search/title/:title", async (req, res) => {
+        const { title } = req.params;
+
         try {
-        const { title } = req.body; // read from body
-        if (!title) return res.status(400).json({ error: "Title is required" });
-
-        console.log("Searching songs with title:", title);
-
         const songs = await db.all(
-            "SELECT * FROM Song WHERE title LIKE ?",
-            [`%${title}%`] // partial match
+            `SELECT * FROM Song WHERE title LIKE ?`,
+            [`%${title}%`]
         );
-
-        console.log("Songs found:", songs);
-
-        res.json(songs); // always return JSON
+        res.json(songs);
         } catch (err) {
-        console.error("Error in /songs/search:", err);
-        res.status(500).json({ error: err.message });
+        console.error(err);
+        res.status(500).json({ error: "Search by title failed" });
+        }
+    });
+
+    router.get("/search/artist/:artist", async (req, res) => {
+        const { artist } = req.params;
+
+        try {
+        const songs = await db.all(
+            `SELECT * FROM Song WHERE artist LIKE ?`,
+            [`%${artist}%`]
+        );
+        res.json(songs);
+        } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: "Search by artist failed" });
+        }
+    });
+
+    router.get("/search/length", async (req, res) => {
+        const { comparison, value } = req.query;
+
+        if (!["<", ">", "="].includes(comparison)) {
+        return res.status(400).json({ error: "Invalid comparison operator" });
+        }
+
+        if (isNaN(value)) {
+        return res.status(400).json({ error: "Length must be a number" });
+        }
+
+        try {
+        const songs = await db.all(
+            `SELECT * FROM Song WHERE song_length ${comparison} ?`,
+            [Number(value)]
+        );
+        res.json(songs);
+        } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: "Search by length failed" });
         }
     });
 

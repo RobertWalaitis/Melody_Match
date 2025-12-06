@@ -79,25 +79,21 @@ export async function unlikeSong(user_id, song_id) {
 }
 
 export async function searchSongsByTitle(title) {
-  if (!title) return [];
+  const res = await fetch(`${API_URL}/songs/search/title/${title}`);
+  if (!res.ok) throw new Error("Failed to search by title");
+  return res.json();
+}
 
-  const res = await fetch(`${API_URL}/songs/search`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ title }) // send in body
-  });
+export async function searchSongsByArtist(artist) {
+  const res = await fetch(`${API_URL}/songs/search/artist/${artist}`);
+  if (!res.ok) throw new Error("Failed to search songs by artist");
+  return res.json();
+}
 
-  if (!res.ok) {
-    const text = await res.text();
-    console.error("Server returned an error:", text);
-    throw new Error("Failed to search songs");
-  }
-
-  try {
-    const data = await res.json();
-    return data;
-  } catch (err) {
-    console.error("Failed to parse JSON from server:", err);
-    throw err;
-  }
+export async function searchSongsByLength(comparison, length) {
+  const res = await fetch(
+    `${API_URL}/songs/search/length?comparison=${comparison}&value=${length}`
+  );
+  if (!res.ok) throw new Error("Failed to search songs by length");
+  return res.json();
 }
