@@ -135,4 +135,6 @@ export default function songRoutes(db) {
             res.status(500).json({ error: "Search by length failed" });
         }
     });
+
+    return router;
 }
