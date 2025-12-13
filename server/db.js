@@ -70,13 +70,15 @@ async function resetAndSeed(db) {
     const songs = await loadCSV("songs.csv");
     for (const s of songs) {
         await db.run(
-            `INSERT INTO Song (song_id, title, song_length, artist)
-             VALUES (?, ?, ?, ?)`,
+            `INSERT INTO Song (song_id, title, song_length, artist, genre, release_year)
+             VALUES (?, ?, ?, ?, ?, ?)`,
             [
                 Number(s.song_id),
                 s.title,
                 Number(s.song_length),
-                s.artist
+                s.artist,
+                s.genre,
+                Number(s.release_year)
             ]
         );
     }
