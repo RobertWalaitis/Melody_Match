@@ -8,7 +8,7 @@ song_id,title,song_length,artist,genre,release_year
 7,Shadows,251,ROY KNOX,Electronic,2020
 8,Earth,234,K-391,Electronic,2016
 9,Invincible,273,DEAF KEV,Electronic,2015
-10,Control,167, Unknown Brain,Electronic,2018
+10,Control,167,Unknown Brain,Electronic,2018
 11,Popsicle ,265,LFZ ,Electronic,2017
 12,Redemption,157,Besomorph,Electronic,2019
 13,Fearless pt.II,194,Lost Sky,Electronic,2018
@@ -159,10 +159,10 @@ song_id,title,song_length,artist,genre,release_year
 158,Paradise,186,Alan Walker,Electronic,2021
 159,Hope ,196,Alan Walker,Electronic,2020
 160,The Storm,169,TheFatRat,Electronic,2020
-161,Bleeding Out,222, Imagine Dragons,Pop,2018
+161,Bleeding Out,222,Imagine Dragons,Pop,2018
 162,Wolf in Sheep's Clothing,188,Set It Off,Punk,2015
 163,I'll Sleep When I'm Dead,203,Set It Off,Punk,2016
-164,somebody told me,198,the killers,Rock,2008
+164,somebody told me,198,The Killers,Rock,2008
 165,"You're Gonna Go Far, Kid",178,The Offspring,Rock,2010
 166,Stronger ,193,Lemon Fight,Electronic,2018
 167,Love Dramatic,263,Funky Flag,Pop,2021
@@ -174,8 +174,8 @@ song_id,title,song_length,artist,genre,release_year
 173,The Haunting,177,Set It Off,Punk,2016
 174,Fireflies,225,Owl City,Pop,2020
 175,I Just Died In Your Arms Tonight ,269,Cutting Crew,Rock,2010
-176,Some Nights,276,Fun,Pop,2015
-177,We Are Young,251,Fun,Pop,2012
+176,Some Nights,276,Fun.,Pop,2015
+177,We Are Young,251,Fun.,Pop,2012
 178,New Rules,210,Dua Lipa,Pop,2020
 179,Welcome to the Internet,281,Bo Burnham,Pop,2021
 180,A Good Song Never Dies,202,SAINT MOTEL,Pop,2020
@@ -188,9 +188,9 @@ song_id,title,song_length,artist,genre,release_year
 187,World's Smallest Violin,181,AJR ,Pop,2022
 188,Sober Up,219,AJR ,Pop,2017
 189,100 Bad Days,213,AJR ,Pop,2019
-190,All Alone,184,Fun,Pop,2018
-191,Carry On,279,Fun,Pop,2017
-192,Why Am I The One,252,Fun,Pop,2013
+190,All Alone,184,Fun.,Pop,2018
+191,Carry On,279,Fun.,Pop,2017
+192,Why Am I The One,252,Fun.,Pop,2013
 193,Instant Crush,338,Daft Punk,Electronic,2015
 194,Oblivion ,230,Dirty Palm,Electronic,2017
 195,Rät,195,Penelope Scott,Pop,2020
@@ -209,7 +209,7 @@ song_id,title,song_length,artist,genre,release_year
 208,My Ordinary Life,231,The Living Tombstone,Pop,2020
 209,Epoch ,189,The Living Tombstone,Pop,2021
 210,Betty Boop,221,Charlie Puth,Electronic,2018
-211,Drunk ,206, The Living Tombstone,Pop,2020
+211,Drunk ,206,The Living Tombstone,Pop,2020
 212,Tangled Up,205,Caro Emerald,Pop,2013
 213, The Moss,243,Cosmo Sheldrake,Pop,2014
 214,Ruler of Everything,223,Tally Hall,Pop,2018
@@ -231,11 +231,11 @@ song_id,title,song_length,artist,genre,release_year
 230,N.M.E.,209,Set It Off,Punk,2017
 231,Na Na Na,207,My Chemical Romance,Punk,2017
 232,No Lullaby,204,SIAMÉS,Pop,2019
-233,All The Pretty Girls,203,fun,Pop,2009
-234,Be Calm,250,fun,Pop,2009
-235,Take Your Time,472,fun,Pop,2009
-236,Out on the Town,262,Fun,Pop,2017
-237,Some Nights,140,Fun,Pop,2015
+233,All The Pretty Girls,203,Fun.,Pop,2009
+234,Be Calm,250,Fun.,Pop,2009
+235,Take Your Time,472,Fun.,Pop,2009
+236,Out on the Town,262,Fun.,Pop,2017
+237,Some Nights,140,Fun.,Pop,2015
 238,ECHO,204,The Living Tombstone,Electronic,2017
 239,Till It's Over,271,Tristam ,Electronic,2014
 240,Discord ,194,The Living Tombstone,Electronic,2019
@@ -253,7 +253,7 @@ song_id,title,song_length,artist,genre,release_year
 252,Finale,279,AJR ,Pop,2019
 253, Don't Throw Out My Legos,252,AJR ,Pop,2019
 254,Sunburn,237,The Living Tombstone,Pop,2022
-255,Barlights,258,fun,Pop,2009
+255,Barlights,258,Fun.,Pop,2009
 256,Love I Need,193,The Living Tombstone,Pop,2020
 257,I Expect You To Die,157,Schell Games,Pop,2020
 258,The Sharpest Lives,201,My Chemical Romance,Punk,2015
@@ -309,14 +309,14 @@ song_id,title,song_length,artist,genre,release_year
 308, Mama's Gun,267,Glass Animals,Pop,2018
 309, To the End,182,My Chemical Romance,Punk,2014
 310,Turning Out Pt. ii,224,AJR,Pop,2019
-311,Stronger Than The Whiskey,229, Poor Mans Poison,Country,2021
+311,Stronger Than The Whiskey,229,Poor Mans Poison,Country,2021
 312,C'mon Down,158,Poor Man's Poison,Country,2023
 313, Hey Mister,154,Poor Man's Poison,Country,2023
 314,Pools ,289,Glass Animals,Pop,2016
 315, Daddy ! Daddy ! Do !,255,Masayuki Suzuki,Pop,2021
 316, Greedy Man,212,Poor Man's Poison,Country,2023
 317,Prodigal,202,Poor Man's Poison,Country,2015
-318,Hit The Snooze,248, The Living Tombstone,Electronic,2022
+318,Hit The Snooze,248,The Living Tombstone,Electronic,2022
 319,Death Of A Bachelor,211,Panic! At The Disco,Pop,2016
 320, Victorious,179,Panic! At The Disco,Pop,2017
 321, Golden Days,255,Panic! At The Disco,Pop,2017
@@ -338,8 +338,8 @@ song_id,title,song_length,artist,genre,release_year
 337,The Overpass,178,Panic! At The Disco,Pop,2018
 338,Sarah Smiles,214,Panic! At The Disco,Pop,2017
 339,Hurricane,220,Panic! At The Disco,Pop,2012
-340,Nobody Likes the Opening Band,136, I DONT KNOW HOW BUT THEY FOUND ME,Pop,2020
-341,Old Fashioned ,167, Panic! At The Disco,Pop,2018
+340,Nobody Likes the Opening Band,136,I DONT KNOW HOW BUT THEY FOUND ME,Pop,2020
+341,Old Fashioned ,167,Panic! At The Disco,Pop,2018
 342,Stronger,202,SIAMÉS ,Pop,2017
 343,As You Get High,275,SIAMÉS ,Pop,2017
 344,Igowallah,170,Daniel Thrasher,Pop,2023
@@ -362,9 +362,9 @@ song_id,title,song_length,artist,genre,release_year
 361,Peas & Love,176,Bear Ghost,Metal,2023
 362,When I'm Dead,208,Bear Ghost,Metal,2023
 363,Vulture,415,Bear Ghost,Metal,2023
-364,vampire ,220, Olivia Rodrigo,Pop,2023
+364,vampire ,220,Olivia Rodrigo,Pop,2023
 365, For the Departed,221,Shayfer James,Pop,2014
-366,Witch ,232, Burn The Ballroom,Rock,2014
+366,Witch ,232,Burn The Ballroom,Rock,2014
 367,This Is the End,230,Dr. Villain,Country,2021
 368,Goodbye Cruel World,233,Burn The Ballroom,Pop,2022
 369,past lives,150,sapientdream ,Pop,2020
@@ -389,7 +389,7 @@ song_id,title,song_length,artist,genre,release_year
 388,Drifting,147,Good Kid,Pop,2020
 389,From The Start,151,Good Kid,Pop,2023
 390,The Rare Occasions,195,Notion,Pop,2018
-391,QUEEN OF THE NIGHT,165, The Vanished People,Pop,2023
+391,QUEEN OF THE NIGHT,165,The Vanished People,Pop,2023
 392,Break,153,Good Kid,Pop,2024
 393,No Time To Explain,157,Good Kid,Pop,2022
 394,Slingshot ,186,Good Kid,Pop,2019
@@ -435,7 +435,7 @@ song_id,title,song_length,artist,genre,release_year
 434,Ghost,170,Confetti ,Pop,2020
 435,GOSSIP ,169,Måneskin ,Pop,2023
 436,Why Do I,155,Set It Off,Pop,2022
-437,James Bond,264, Paper Idol,Pop,2021
+437,James Bond,264,Paper Idol,Pop,2021
 438,INDIFFERENT ,187,LeGrand ,Hip-Hop,2023
 439,Stranger ,133,Stellar ,Pop,2022
 440,Blur,132,Stellar,Pop,2020
@@ -519,9 +519,9 @@ song_id,title,song_length,artist,genre,release_year
 518,Do Your Worst ,210,The Happy Fits,Pop,2022
 519,Mad godS,261,Dirt Poor Robins,Pop,2025
 520,Last Goodbye,305,Dirt Poor Robins,Pop,2022
-521,Make a Wish,217, Shayfer James,Pop,2025
+521,Make a Wish,217,Shayfer James,Pop,2025
 522,Age of Man,366,Greta Van Fleet,Rock,2018
-523,The Cold Wind,196,Greta Van Fleet,Rock,2018
+523,The Cold Wind,186,Greta Van Fleet,Rock,2018
 524,When The Curtain Falls,222,Greta Van Fleet,Rock,2018
 525,Watching Over,267,Greta Van Fleet,Rock,2018
 526,"Lover, Leaver",214,Greta Van Fleet,Rock,2018
