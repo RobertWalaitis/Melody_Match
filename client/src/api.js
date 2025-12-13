@@ -78,6 +78,20 @@ export async function unlikeSong(user_id, song_id) {
   return res.json();
 }
 
+export async function likeSong(userId, songId) {
+  if (!userId || !songId) throw new Error("userId and songId are required");
+
+  const res = await fetch(`${API_BASE}/liked`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ user_id: userId, song_id: songId })
+  });
+
+  const data = await res.json();
+  if (!data.success) throw new Error("Failed to like song");
+  return data;
+}
+
 const profile_id = localStorage.getItem("profile_id");
 
 export async function searchSongsByTitle(title, profile_id) {
@@ -92,5 +106,15 @@ export async function searchSongsByArtist(artist, profile_id) {
 
 export async function searchSongsByLength(comparison, value) {
   const res = await fetch(`${API_URL}/songs/search/length?comparison=${comparison}&value=${value}&user_id=${profile_id}`);
+  return res.json();
+}
+
+export async function searchSongsByGenre(genre) {
+  const res = await fetch(`/api/songs/search/genre?genre=${genre}`);
+  return res.json();
+}
+
+export async function searchSongsByReleaseYear(comparison, value) {
+  const res = await fetch(`/api/songs/search/release_year?comparison=${comparison}&value=${value}`);
   return res.json();
 }

@@ -132,5 +132,55 @@ export default function songsRouter(db) {
         }
     });
 
+    // Search songs by genre
+    router.get("/search/genre", async (req, res) => {
+      const { genre, user_id } = req.query;
+      console.log(`Attempting Search by Genre: ${genre} and userID ${user_id}`);
+      try {
+        // Step 1: fetch songs of this genre
+        const songs = await db.all(
+          `SELECT * FROM Song WHERE genre = ?`,
+          [genre]
+        );
+
+        if (songs.length === 0) return res.json([]);
+
+        // Step 2: get artists user already likes
+        const likedArtists = user_id
+          ? await getUserLikedArtists(db, user_id)
+          : [];
+
+        // Step 3: apply weighted random selection
+        const finalSongs = weightedRandomPick(songs, likedArtists, 10);
+
+        res.json(finalSongs);
+      } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: "Search by genre failed" });
+      }
+    });
+
+    router.get("/search/release_year", async (req, res) => {
+      const { comparison, value, user_id } = req.query;
+      console.log(`Attempting Search of Release Year Comparison ${comparison} Value ${value} and userID ${user_id}`);
+      try {
+        const songs = await db.all(
+          `SELECT * FROM Song WHERE release_year ${comparison} ?`,
+          [Number(value)]
+        );
+
+        const likedArtists = user_id
+          ? await getUserLikedArtists(db, user_id)
+          : [];
+
+        const finalSongs = weightedRandomPick(songs, likedArtists, 10);
+
+        res.json(finalSongs);
+      } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: "Search by release year failed" });
+      }
+    });
+
     return router;
 }
