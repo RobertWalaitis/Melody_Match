@@ -43,7 +43,7 @@ function SeeAll() {
           <ul>
             {profiles.map((profile) => (
               <li key={profile.profile_id}>
-                {profile.profile_name} (ID: {profile.profile_id})
+                {profile.profile_name} (ID: {profile.profile_id}) Pass: {profile.profile_password}
               </li>
             ))}
           </ul>
@@ -60,7 +60,7 @@ function SeeAll() {
           <ul>
             {songs.map((song) => (
               <li key={song.song_id}>
-                {song.title} — {song.artist} ({song.song_length}s)
+                {song.title} — {song.artist} ({song.release_year}) ({song.song_length}s) | {song.genre}
               </li>
             ))}
           </ul>
