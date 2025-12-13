@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getLikes, unlikeSong } from "../api";
+import { useNavigate } from "react-router-dom";
 
 function LikedSongs() {
   const [songs, setSongs] = useState([]);
@@ -60,6 +61,13 @@ function LikedSongs() {
           ))}
         </ul>
       )}
+      {/* Back Button */}
+      <button
+        onClick={() => navigate("/")}
+        style={{ marginTop: "2rem" }}
+      >
+        Back to Home
+      </button>
     </div>
   );
 }

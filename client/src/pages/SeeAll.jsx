@@ -1,6 +1,7 @@
 // src/pages/SeeAll.jsx
 import React, { useEffect, useState } from "react";
 import { getProfiles, getSongs, getAllLikes } from "../api";
+import { useNavigate } from "react-router-dom";
 
 function SeeAll() {
   const [profiles, setProfiles] = useState([]);
@@ -83,6 +84,13 @@ function SeeAll() {
           </ul>
         )}
       </section>
+      {/* Back Button */}
+      <button
+        onClick={() => navigate("/")}
+        style={{ marginTop: "2rem" }}
+      >
+        Back to Home
+      </button>
     </div>
   );
 }

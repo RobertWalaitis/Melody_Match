@@ -7,6 +7,7 @@ import {
   searchSongsByReleaseYear,
   likeSong 
 } from "../api";
+import { useNavigate } from "react-router-dom";
 
 function SongSearch() {
   const [query, setQuery] = useState("");
@@ -192,6 +193,13 @@ function SongSearch() {
           </li>
         ))}
       </ul>
+      {/* Back Button */}
+      <button
+        onClick={() => navigate("/")}
+        style={{ marginTop: "2rem" }}
+      >
+        Back to Home
+      </button>
     </div>
   );
 }
