@@ -3,6 +3,7 @@ import { getLikes, unlikeSong } from "../api";
 import { useNavigate } from "react-router-dom";
 
 function LikedSongs() {
+  const navigate = useNavigate();
   const [songs, setSongs] = useState([]);
   const [error, setError] = useState("");
 

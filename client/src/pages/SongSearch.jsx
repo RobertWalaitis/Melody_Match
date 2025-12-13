@@ -10,6 +10,7 @@ import {
 import { useNavigate } from "react-router-dom";
 
 function SongSearch() {
+  const navigate = useNavigate();
   const [query, setQuery] = useState("");
   const [lengthValue, setLengthValue] = useState("");
   const [lengthComparison, setLengthComparison] = useState(">");

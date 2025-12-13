@@ -4,6 +4,7 @@ import { getProfiles, getSongs, getAllLikes } from "../api";
 import { useNavigate } from "react-router-dom";
 
 function SeeAll() {
+  const navigate = useNavigate();
   const [profiles, setProfiles] = useState([]);
   const [songs, setSongs] = useState([]);
   const [likes, setLikes] = useState([]);
