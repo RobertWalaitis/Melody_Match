@@ -84,7 +84,7 @@ export async function likeSong(profile_id, song_id) {
   const res = await fetch(`${API_URL}/liked`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ profile_id: profile_id, song_id: song_id })
+    body: JSON.stringify({ user_id: profile_id, song_id: song_id })
   });
 
   const data = await res.json();
