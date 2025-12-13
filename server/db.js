@@ -100,21 +100,25 @@ async function resetAndSeed(db) {
 }
 
 export async function initDB() {
+    console.log("Initializing database...");
     const db = await open({
         filename: dbPath,
         driver: sqlite3.Database
     });
-
+    console.log("Database opened.");
     // Load schema
     const schema = fs.readFileSync(setupPath, "utf8");
     await db.exec(schema);
+    console.log("Database schema ensured.");
 
+    // Seed in dev mode
     if (process.env.NODE_ENV !== "production") {
         console.log("DEV MODE: resetting and seeding database");
         await resetAndSeed(db);
+        console.log("Database ready in DEV MODE");
     } else {
         console.log("PRODUCTION MODE: skipping reseed");
     }
-    
+
     return db;
 }
