@@ -76,7 +76,7 @@ function ProfileSettings() {
       {msg && <p>{msg}</p>}
 
       <div style={{ marginTop: "2rem" }}>
-        <button onClick={() => navigate("/")}>Back to Home</button>
+        <button onClick={() => navigate("/home")}>Back to Home</button>
         <button onClick={() => navigate("/search")} style={{ marginLeft: "1rem" }}>
           Search Songs
         </button>

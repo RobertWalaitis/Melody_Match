@@ -196,7 +196,7 @@ function SongSearch() {
       </ul>
       {/* Back Button */}
       <button
-        onClick={() => navigate("/")}
+        onClick={() => navigate("/home")}
         style={{ marginTop: "2rem" }}
       >
         Back to Home

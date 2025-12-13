@@ -87,7 +87,7 @@ function SeeAll() {
       </section>
       {/* Back Button */}
       <button
-        onClick={() => navigate("/")}
+        onClick={() => navigate("/home")}
         style={{ marginTop: "2rem" }}
       >
         Back to Home
