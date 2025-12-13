@@ -18,6 +18,8 @@ function SongSearch() {
   const [error, setError] = useState("");
   const [likedSongs, setLikedSongs] = useState([]); // keep track of liked songs
 
+  const profile_id = localStorage.getItem("profile_id");
+
   // Fixed genre options
   const genres = [
     "Country",
@@ -26,7 +28,8 @@ function SongSearch() {
     "Hip-Hop",
     "Metal",
     "New Wave",
-    "Pop Punk",
+    "Pop",
+    "Punk",
     "R&B",
     "Rock"
   ];
@@ -37,13 +40,13 @@ function SongSearch() {
 
       switch (searchType) {
         case "title":
-          songs = await searchSongsByTitle(query);
+          songs = await searchSongsByTitle(query,profile_id);
           break;
         case "artist":
-          songs = await searchSongsByArtist(query);
+          songs = await searchSongsByArtist(query,profile_id);
           break;
         case "genre":
-          songs = await searchSongsByGenre(query);
+          songs = await searchSongsByGenre(query,profile_id);
           break;
         case "length":
           songs = await searchSongsByLength(lengthComparison, lengthValue);
@@ -65,8 +68,8 @@ function SongSearch() {
   };
 
   const handleLike = async (songId) => {
-    if (!userId) {
-      setError("User ID not set. Cannot like song.");
+    if (!profile_id) {
+      setError("Profile ID not set. Cannot like song.");
       return;
     }
 
@@ -74,7 +77,7 @@ function SongSearch() {
       const res = await fetch("/api/liked", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ user_id: userId, song_id: songId })
+        body: JSON.stringify({ user_id: profile_id, song_id: songId })
       });
 
       const data = await res.json();

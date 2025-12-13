@@ -78,13 +78,13 @@ export async function unlikeSong(user_id, song_id) {
   return res.json();
 }
 
-export async function likeSong(userId, songId) {
-  if (!userId || !songId) throw new Error("userId and songId are required");
+export async function likeSong(profile_id, song_id) {
+  if (!profile_id || !song_id) throw new Error("profile_id and song_id are required");
 
   const res = await fetch(`${API_BASE}/liked`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ user_id: userId, song_id: songId })
+    body: JSON.stringify({ profile_id: profile_id, song_id: song_id })
   });
 
   const data = await res.json();
@@ -109,12 +109,12 @@ export async function searchSongsByLength(comparison, value) {
   return res.json();
 }
 
-export async function searchSongsByGenre(genre) {
-  const res = await fetch(`/api/songs/search/genre?genre=${genre}`);
+export async function searchSongsByGenre(genre, profile_id) {
+  const res = await fetch(`/api/songs/search/genre?genre=${genre}&user_id=${profile_id}`);
   return res.json();
 }
 
 export async function searchSongsByReleaseYear(comparison, value) {
-  const res = await fetch(`/api/songs/search/release_year?comparison=${comparison}&value=${value}`);
+  const res = await fetch(`/api/songs/search/release_year?comparison=${comparison}&value=${value}&user_id=${profile_id}`);
   return res.json();
 }
