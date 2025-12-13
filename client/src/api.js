@@ -104,17 +104,17 @@ export async function searchSongsByArtist(artist, profile_id) {
   return res.json();
 }
 
+export async function searchSongsByGenre(genre, profile_id) {
+  const res = await fetch(`${API_URL}/songs/search/genre?genre=${genre}&user_id=${profile_id}`);
+  return res.json();
+}
+
 export async function searchSongsByLength(comparison, value) {
   const res = await fetch(`${API_URL}/songs/search/length?comparison=${comparison}&value=${value}&user_id=${profile_id}`);
   return res.json();
 }
 
-export async function searchSongsByGenre(genre, profile_id) {
-  const res = await fetch(`/api/songs/search/genre?genre=${genre}&user_id=${profile_id}`);
-  return res.json();
-}
-
 export async function searchSongsByReleaseYear(comparison, value) {
-  const res = await fetch(`/api/songs/search/release_year?comparison=${comparison}&value=${value}&user_id=${profile_id}`);
+  const res = await fetch(`${API_URL}/songs/search/release_year?comparison=${comparison}&value=${value}&user_id=${profile_id}`);
   return res.json();
 }
