@@ -12,6 +12,7 @@ export default function likedRoutes(db) {
     // Like a song
     router.post("/", async (req, res) => {
         const { user_id, song_id } = req.body;
+        console.log("Liking song with User ID = ", user_id, " and Song ID = ",song_id);
         await db.run(
             "INSERT INTO Liked (liked_song_id, profile_user_id) VALUES (?, ?)",
             [song_id, user_id]
