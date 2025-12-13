@@ -4,7 +4,8 @@ import {
   searchSongsByArtist,
   searchSongsByLength,
   searchSongsByGenre,
-  searchSongsByReleaseYear
+  searchSongsByReleaseYear,
+  likeSong 
 } from "../api";
 
 function SongSearch() {
@@ -74,18 +75,8 @@ function SongSearch() {
     }
 
     try {
-      const res = await fetch("/api/liked", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ user_id: profile_id, song_id: songId })
-      });
-
-      const data = await res.json();
-      if (data.success) {
-        setLikedSongs([...likedSongs, songId]);
-      } else {
-        setError("Failed to like song");
-      }
+      await likeSong(profile_id, songId);
+      setLikedSongs([...likedSongs, songId]);
     } catch (err) {
       console.error("Error liking song:", err);
       setError("Failed to like song");
