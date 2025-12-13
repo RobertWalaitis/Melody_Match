@@ -81,7 +81,7 @@ export async function unlikeSong(user_id, song_id) {
 export async function likeSong(profile_id, song_id) {
   if (!profile_id || !song_id) throw new Error("profile_id and song_id are required");
 
-  const res = await fetch(`${API_BASE}/liked`, {
+  const res = await fetch(`${API_URL}/liked`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ profile_id: profile_id, song_id: song_id })
