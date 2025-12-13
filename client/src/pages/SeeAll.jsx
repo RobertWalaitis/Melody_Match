@@ -43,7 +43,7 @@ function SeeAll() {
           <ul>
             {profiles.map((profile) => (
               <li key={profile.profile_id}>
-                {profile.profile_name} (ID: {profile.profile_id}) Pass: {profile.profile_password}
+                {profile.profile_name} (ID: {profile.profile_id}) Password: {profile.profile_password}
               </li>
             ))}
           </ul>
