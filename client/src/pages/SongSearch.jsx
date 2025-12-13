@@ -98,7 +98,7 @@ function SongSearch() {
       <ul>
         {results.map((song) => (
           <li key={song.song_id}>
-            {song.title} by {song.artist} ({song.song_length}s)
+            {song.title} — {song.artist} ({song.release_year}) ({song.song_length}s) | {song.genre}
           </li>
         ))}
       </ul>
