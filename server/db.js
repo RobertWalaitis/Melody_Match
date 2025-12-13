@@ -49,6 +49,9 @@ async function resetAndSeed(db) {
     await db.run("DELETE FROM Liked");
     await db.run("DELETE FROM Song");
     await db.run("DELETE FROM Profiles");
+    await db.exec("DROP TABLE IF EXISTS Liked");
+    await db.exec("DROP TABLE IF EXISTS Song");
+    await db.exec("DROP TABLE IF EXISTS Profiles");
 
     console.log("Inserting seed data...");
 
