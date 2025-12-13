@@ -1,12 +1,532 @@
-song_id, title, song_length, artist
-1, Go!, 154, Plumtree
-2, You Just Dont Exist, 198, Plumtree
-3, Racing Gloves, 262, Plumtree
-4, Effin, 167, Plumtree
-5, Hang Up Baby, 154, Plumtree
-6, I Love You When Youre Walking Away, 157, Plumtree
-7, Fatherhood, 166, Plumtree
-8, The Games Over, 223, Plumtree
-9, Scott Pilgrim, 184, Plumtree
-10, Going So Low, 196, Plumtree
-11, Red Wine Supernova, 193, Chappell Roan
+song_id,title,song_length,artist,genre,release_year
+1,Perfect 10,204,Unknown Brain,Electronic,2018
+2,Be Gone,233,Rival,Electronic,2019
+3,Howling,220,Cartoon,Electronic,2020
+4,Be With You,193,Cadmium,Electronic,2018
+5,Alibi,193,Distrion,Electronic,2020
+6,The Labyrinth,188,NIVIRO,Electronic,2020
+7,Shadows,251,ROY KNOX,Electronic,2020
+8,Earth,234,K-391,Electronic,2016
+9,Invincible,273,DEAF KEV,Electronic,2015
+10,Control,167, Unknown Brain,Electronic,2018
+11,Popsicle ,265,LFZ ,Electronic,2017
+12,Redemption,157,Besomorph,Electronic,2019
+13,Fearless pt.II,194,Lost Sky,Electronic,2018
+14,MAGNUS,142,Cool,Electronic,2020
+15,Heroes Tonight,208,Janji ,Electronic,2015
+16,Freefall,196,Arlow ,Electronic,2020
+17,Fire ,174,Brook Xiao,Electronic,2020
+18,Bring Me Back To Life,258,InfiNoise ,Electronic,2020
+19,Save Myself,214,Mendum ,Electronic,2020
+20,I Feel Crazy,163,Aeden,Electronic,2020
+21,Fairytale ,193,Culture Code,Electronic,2019
+22,Seasons ,193,Rival ,Electronic,2018
+23,Red Line,265,Anna Yvette,Electronic,2019
+24,Fall With Me,169,Jim Yosef,Electronic,2020
+25,Crazy ,188,BEAUZ,Electronic,2019
+26,Alone ,232,Asketa ,Electronic,2018
+27,No Stopping Love,183,Dirty Palm,Electronic,2019
+28,Shake You Off,229,Maryn ,Electronic,2019
+29,All Stops Now,146,JPB ,Electronic,2019
+30,Breakdown ,251,Xaia,Electronic,2020
+31,Daylight ,154,Heuse ,Electronic,2020
+32,Shining ,158,Jonas Wang,Electronic,2020
+33,Take It Easy,198,BVRNOUT,Electronic,2017
+34,Happi ,161,Mangoo ,Electronic,2020
+35,Your Body,167,Nomra ,Electronic,2020
+36,On & On,208,Cartoon,Electronic,2015
+37,Lightning Child,183,Raiko,Electronic,2019
+38,Everything ,176,Jone,Electronic,2020
+39,Be Around,203,Blooom ,Electronic,2020
+40,Slow ,189,Riell ,Electronic,2020
+41,Inspiration ,182,Unknown Brain,Electronic,3:02
+42,Superhero ,182,Unknown Brain,Electronic,2016
+43,Time To Talk,219,Time To Talk,Electronic,2020
+44,If the World Was Ending,209,JP Saxe,Pop,2020
+45,Savage Love,173,Jason Derulo,Pop,2020
+46,Memories ,185,Maroon 5,Pop,2020
+47,Havana ,213,Camila Cabello,Pop,2019
+48,Girls Like You,236,Maroon 5,Pop,2018
+49,Fox On The Run,208,Sweet,Rock,2017
+50,Stockholm Lights,173,Diviners ,Electronic,2020
+51,Supersonic ,228,Rob Gasser,Electronic,2017
+52,C U Again,203,Cartoon,Electronic,2017
+53,Drakkar ,214,Distrion ,Electronic,2019
+54,Nekozilla ,166,Different Heaven,Electronic,2015
+55,Love U,263,Razihel ,Electronic,2016
+56,Let's Go!,208,Lensko ,Electronic,2015
+57,Cetus,282,Lensko ,Electronic,2014
+58,23,270,Diamond Eyes,Electronic,2020
+59,Everything ,207,Diamond Eyes,Electronic,2018
+60,Gravity ,207,Diamond Eyes,Electronic,2020
+61,Pill ,136,Heuse ,Electronic,2016
+62,Why We Lose,214,Cartoon,Electronic,2015
+63,Puzzle ,170,RetroVision ,Electronic,2016
+64,This is War,330,Thirty Seconds to Mars,Punk,2010
+65,A Real Life,243,Greek Fire,Punk,2013
+66,Where We Started,222,Lost Sky,Electronic,2019
+67,"Harder, Better, Faster, Stronger",225,Daft Punk,Electronic,2015
+68,Everyday ,210,Beatcore ,Electronic,2020
+69,Stars ,228,Diamond Eyes,Electronic,2019
+70,The Other Side,251,Elektronomia ,Electronic,2017
+71,Army,204,Besomorph ,Electronic,2020
+72,Stronger ,212,Prismo ,Electronic,2018
+73,Dreams ,215,Lost Sky,Electronic,2018
+74,Symphony ,243,Clean Bandit,Pop,2020
+75,This Can't Be Love,203,Victor Crone,Pop,2020
+76,Closer ,246,The Chainsmokers,Pop,2019
+77,Dusk Till Dawn,236,ZAYN ,Pop,2020
+78,Darkside ,212,Alan Walker,Electronic,2019
+79,Attention ,212,Charlie Puth,Pop,2019
+80,Sugar ,264,Maroon 5,Pop,2020
+81,Shameless ,217,Camila Cabello,Pop,2019
+82,Lily ,196,Alan Walker,Electronic,2019
+83,Cradles ,210,Sub Urban,Pop,2019
+84,Rather Be,228,Clean Bandit,Pop,2020
+85,Riptide ,230,Vance Joy,Pop,2019
+86,GRRRLS,229,AViVA ,Pop,2018
+87,Rockabye ,250,Clean Bandit,Pop,2020
+88,Kings & Queens,161,Ava Max,Pop,2020
+89,BANG!,171,AJR ,Pop,2021
+90,Just Give Me a Reason,243,P!nk ,Pop,2020
+91,Youngblood,204,5 Seconds Of Summer,Pop,2020
+92,Sucker ,182,Jonas Brothers,Pop,2019
+93, So Am I,185,Ava Max,Pop,2019
+94,Sweet but Psycho,188,Ava Max,Pop,2018
+95,PLAY ,169,Alan Walker,Electronic,2019
+96,Without You,182,Avicii ,Pop,2018
+97,drivers license,243,Olivia Rodrigo,Pop,2021
+98,See You Through My Eyes,237,The Head and the Heart,Pop,2019
+99,Face Down,188,Red Jumpsuit Apparatus,Punk,2011
+100,Lost Control,223,Alan Walker,Electronic,2019
+101,Last of Her Kind,211,Alec Benjamin,Pop,2017
+102,Hold On,201,Chord Overstreet,Pop,2017
+103,Falling Apart,200,Michael Schulte,Pop,2020
+104,To Be Human,244,MARINA ,Pop,2019
+105,Little Do You Know,185,Rachel Gardner,Pop,2019
+106,Teeth ,234,5 Seconds of Summer,Pop,2019
+107,Home Run,210,Misha B,Electronic,2012
+108,Ignite ,208,Alan Walker,Electronic,2020
+109,No Roots,237,Alice Merton,Pop,2019
+110,Thanks For The Memories,207,Fall out Boy,Rock,2011
+111,Salt,183,Ava Max,Pop,2019
+112,My Oh My,174,Camila Cabello,Pop,2020
+113,Waiting For Love,232,Avicii ,Pop,2015
+114,Castle ,158,Clarx ,Electronic,2020
+115,Stay ,213,Zedd,Pop,2017
+116,Can't Hold Us,258,Macklemore ,Pop,2013
+117,Little Talks,256,Of Monsters And Men,Pop,2020
+118,There's Nothing Holding Me Back,200,Shawn Mendes,Pop,2020
+119,Diamond Heart ,241,Alan Walker,Electronic,2018
+120,Titanium ,268,David Guetta,Pop,2019
+121,The Nights,206,Avicii ,Pop,2019
+122,Big Blast Sonic,241,Daisuke Ishiwatari,Metal,2021
+123,It's Time,233,Imagine Dragons,Pop,2012
+124,Wrecked,243,Imagine Dragons,Pop,2021
+125,Follow You,173,Imagine Dragons,Pop,2021
+126,Blinding Lights,200,The Weeknd,Pop,2020
+127,Beethoven Virus,221,Diana Boncheva,Electronic,2008
+128,Bad Habits,230,Ed Sheeran,Pop,2021
+129,Ievan Polkka,189,Korpiklaani ,Metal,2019
+130,Coming Home,222,Daisuke Ishiwatari,Metal,2021
+131,Sing Me To Sleep,188,Alan Walker,Electronic,2019
+132,Alone,161,Alan Walker,Electronic,2019
+133,Faded ,213,Alan Walker,Electronic,2019
+134,End of Time,187,K-391,Electronic,2020
+135,Light It Up,185,Robin Hustin,Electronic,2018
+136,Phoenix,209,Blanke ,Pop,2019
+137,Say Goodbye,230,Unknown Brain,Electronic,2019
+138,Why Do I?,223,Unknown Brain,Electronic,2018
+139,You And Me,179,Coopex ,Electronic,2019
+140,Riptide ,199,Trivecta,Pop,2019
+141,Hiding In The Blue,219,TheFatRat ,Electronic,2021
+142,The Last of the Real Ones Lyrics,231,Fall Out Boy,Pop,2017
+143,Good in Goodbye,145,Madison Beer,Pop,2020
+144,Counting Stars,257,OneRepublic,Pop,2020
+145,Wake Me Up,252,Avicii ,Pop,2013
+146,Something Just Like This,248,The Chainsmokers,Pop,2017
+147,Karma ,249,AJR ,Pop,2019
+148,Weak ,206,AJR,Pop,2017
+149,Tired ,194,Alan Walker,Electronic,2017
+150,The Spectre,206,Alan Walker,Electronic,2017
+151,Aurora ,164,K-391,Electronic,2020
+152,Believers ,160,Alan Walker,Electronic,2021
+153,Who's Laughing Now,179,Ava Max,Pop,2020
+154,Fake A Smile,167,Alan Walker,Electronic,2021
+155,My Head & My Heart ,173,Ava Max,Pop,2021
+156,Outrunning Karma,189,Alec Benjamin,Pop,2018
+157,We'll Meet Again,196,TheFatRat,Electronic,2020
+158,Paradise,186,Alan Walker,Electronic,2021
+159,Hope ,196,Alan Walker,Electronic,2020
+160,The Storm,169,TheFatRat,Electronic,2020
+161,Bleeding Out,222, Imagine Dragons,Pop,2018
+162,Wolf in Sheep's Clothing,188,Set It Off,Punk,2015
+163,I'll Sleep When I'm Dead,203,Set It Off,Punk,2016
+164,somebody told me,198,the killers,Rock,2008
+165,"You're Gonna Go Far, Kid",178,The Offspring,Rock,2010
+166,Stronger ,193,Lemon Fight,Electronic,2018
+167,Love Dramatic,263,Funky Flag,Pop,2021
+168,My Way,277,Frank Sinatra,R&B,2008
+169,Nightmare ,200,Set It Off,Punk,2012
+170,Kill The Lights,167,Set It Off,Punk,2013
+171,Courtesy Call,237,Thousand Foot Krutch,Punk,2019
+172,Why Worry,218,Set It Off,Punk,2014
+173,The Haunting,177,Set It Off,Punk,2016
+174,Fireflies,225,Owl City,Pop,2020
+175,I Just Died In Your Arms Tonight ,269,Cutting Crew,Rock,2010
+176,Some Nights,276,Fun,Pop,2015
+177,We Are Young,251,Fun,Pop,2012
+178,New Rules,210,Dua Lipa,Pop,2020
+179,Welcome to the Internet,281,Bo Burnham,Pop,2021
+180,A Good Song Never Dies,202,SAINT MOTEL,Pop,2020
+181,Duality,242,Set It Off,Punk,2017
+182,Ship in a Bottle,314,Steffan Argus,R&B,2020
+183,Necromancin Dancin,233,Bear Ghost,Metal,2016
+184,Scared of the Dark,175,BoyWithUke,Pop,2022
+185,Don't You Dare,244,Kaden MacKay,Pop,2022
+186,"Achilles, Come Down",422,Gang Of Youths,Pop,2020
+187,World's Smallest Violin,181,AJR ,Pop,2022
+188,Sober Up,219,AJR ,Pop,2017
+189,100 Bad Days,213,AJR ,Pop,2019
+190,All Alone,184,Fun,Pop,2018
+191,Carry On,279,Fun,Pop,2017
+192,Why Am I The One,252,Fun,Pop,2013
+193,Instant Crush,338,Daft Punk,Electronic,2015
+194,Oblivion ,230,Dirty Palm,Electronic,2017
+195,Rät,195,Penelope Scott,Pop,2020
+196,I Can't Decide,167,Scissor Sisters,Pop,2018
+197,Lone Digger,231,Caravan Palace,Pop,2015
+198,INSANE ,163,Black Gryph0n,Pop,2021
+199,Alastor's Game,188,The Living Tombstone,Pop,2020
+200,Sirens,220,Bear Ghost,Metal,2020
+201,Absolute Territory,269,Ken Ashcorp,Electronic,2013
+202,BAD APPLE!!,311,RichaadEB,Metal,2018
+203,Curses ,227,The Crane Wives,Folk,2021
+204,Fear and Delight,193,The Correspondents,Pop,2014
+205,C'est La Vie,194,Weathers ,Pop,2020
+206,Sex With A Ghost,234,Teddy Hyde,Pop,2018
+207,To My Enemies,262,Saint Motel,Pop,2011
+208,My Ordinary Life,231,The Living Tombstone,Pop,2020
+209,Epoch ,189,The Living Tombstone,Pop,2021
+210,Betty Boop,221,Charlie Puth,Electronic,2018
+211,Drunk ,206, The Living Tombstone,Pop,2020
+212,Tangled Up,205,Caro Emerald,Pop,2013
+213, The Moss,243,Cosmo Sheldrake,Pop,2014
+214,Ruler of Everything,223,Tally Hall,Pop,2018
+215,Come Along,260,Cosmo Sheldrake,Pop,2018
+216,"Soldier, Poet, King",166,The Oh Hellos,Folk,2021
+217,Choke,196,I DONT KNOW HOW BUT THEY FOUND ME,Pop,2017
+218,Lost In The Rhythm,187,Jamie Berry,Electronic,2016
+219,Ashes ,167,Stellar ,Pop,2020
+220,3 O’Clock Things,229,AJR ,Pop,2021
+221,The Wolf,187,SIAMÉS,Pop,2017
+222,Mr. FEAR,247,SIAMÉS,Pop,2017
+223,Pelicans We,209,Cosmo Sheldrake,Pop,2015
+224,The Bidding,161,Tally Hall,Pop,2015
+225, Welcome to the Black Parade,312,My Chemical Romance,Punk,2016
+226,Just One Yesterday ,246,Fall Out Boy,Pop,2013
+227,Sugar We're Going Down,217,Fall Out Boy,Pop,2012
+228,"Dance, Dance",181,Fall Out Boy,Pop,2019
+229, I Don't Care,215,Fall Out Boy,Pop,2009
+230,N.M.E.,209,Set It Off,Punk,2017
+231,Na Na Na,207,My Chemical Romance,Punk,2017
+232,No Lullaby,204,SIAMÉS,Pop,2019
+233,All The Pretty Girls,203,fun,Pop,2009
+234,Be Calm,250,fun,Pop,2009
+235,Take Your Time,472,fun,Pop,2009
+236,Out on the Town,262,Fun,Pop,2017
+237,Some Nights,140,Fun,Pop,2015
+238,ECHO,204,The Living Tombstone,Electronic,2017
+239,Till It's Over,271,Tristam ,Electronic,2014
+240,Discord ,194,The Living Tombstone,Electronic,2019
+241,Spooky's Jump Scare Mansion,205,The Living Tombstone,Pop,2017
+242,Goodbye To A World,331,Porter Robinson,Electronic,2014
+243,Thus Always To Tyrants,220,The Oh Hellos,Folk,2021
+244,Bitter Water,198,The Oh Hellos,Folk,2015
+245,Dear Wormwood,317,The Oh Hellos,Folk,2021
+246,Torches,212,The Oh Hellos,Folk,2021
+247,Hello My Old Heart,257,The Oh Hellos,Folk,2021
+248,Constellations,228,The Oh Hellos,Folk,2021
+249,Still Alive,185,Portal ,Electronic,2007
+250,Starkiller,230,Bear Ghost,Metal,2016
+251," Wow, I'm Not Crazy",199,AJR ,Pop,2019
+252,Finale,279,AJR ,Pop,2019
+253, Don't Throw Out My Legos,252,AJR ,Pop,2019
+254,Sunburn,237,The Living Tombstone,Pop,2022
+255,Barlights,258,fun,Pop,2009
+256,Love I Need,193,The Living Tombstone,Pop,2020
+257,I Expect You To Die,157,Schell Games,Pop,2020
+258,The Sharpest Lives,201,My Chemical Romance,Punk,2015
+259,Chlorine ,325,Twenty One Pilots,Pop,2019
+260,Sway With Me,168,Saweetie ,Electronic,2020
+261,Warbringer ,220,TheFatRat,Electronic,2021
+262,I Wanna Be A Machine,210,The Living Tombstone,Electronic,2022
+263,Inexplicable,251,The Correspondents,Pop,2017
+264,Lazy ,195,The Living Tombstone,Pop,2020
+265,Hallelujah ,270,Pentatonix ,R&B,2016
+266,still feel,247,half•alive,Pop,2018
+267,White Winter,166,Pentatonix ,R&B,2014
+268,Another Love,242,Tom Odell,Pop,2020
+269,It Could Have Been Me,188,The Struts,Pop,2020
+270,That's Christmas to Me,205,Pentatonix ,R&B,2014
+271,Love Again,200,Pentatonix,R&B,2014
+272,Overwhelmed ,187,Ryan Mack,Pop,2021
+273,The DJ Is Crying For Help,227,AJR,Pop,2022
+274,You'll Understand When You're Older,234,Lovejoy ,Pop,2021
+275,"Oh Yeah, You Gonna Cry?",170,Lovejoy ,Pop,2022
+276,Perfume,208,Lovejoy,Pop,2022
+277,The Fall,185,Lovejoy,Pop,2022
+278,Two Birds On a Wire,197,Regina Spektor,Pop,2021
+279,Concrete,197,Lovejoy ,Pop,2021
+280, Feeling Good,238,Michael Bublé,R&B,2017
+281,The Adults Are Talking,290,The Strokes,R&B,2020
+282,I Write Sins Not Tragedies,167,Panic! At The Disco,Pop,2020
+283,Pork Soda,255,Glass Animals,Pop,2017
+284, House of Wolves,184,My Chemical Romance,Punk,2014
+285,Lemon Tree,190,Fools Garden,Pop,2008
+286,Victoria’s Secret,177,Jax ,Pop,2022
+287,Want You Gone,139,Portal,Electronic,2011
+288,A Little Messed Up,169,june ,Pop,2020
+289,Adventure Is Out There,212,AJR ,Pop,2021
+290,Ordinaryish People,221,AJR ,Pop,2021
+291,Now That We're Alone,290,The People's Thieves,Pop,2021
+292, The Other Side Of Paradise,321,Glass Animals,Pop,2018
+293, She-Wrecks,204,Bear Chost,Metal,2016
+294, My Type,207,Saint Motel,Pop,2014
+295, Cane Shuga,197,Glass Animals,Pop,2018
+296, Space Ghost Coast To Coast,188,Glass Animals,Pop,2020
+297,Oh My Dear Lord,190,The Unlikely Candidates,Pop,2018
+298,Preach ,185,SAINT MOTEL,Pop,2020
+299,Used to the Darkness,257,Des Rocs,Pop,2018
+300,Veridis Quo,346,Daft Punk,Electronic,2015
+301,Human ,197,Rag'n'Bone Man,Pop,2021
+302,Dancin ,195,Aaron Smith,Pop,2022
+303,Where Did The Party Go,244,Fall Out Boy,Pop,2013
+304,Thank You for the Venom,222,My Chemical Romance,Punk,2014
+305,Never Love an Anchor,228,The Crane Wives,Folk,2021
+306,Who We Are,250,Imagine Dragons,Pop,2018
+307,For Elise,204,Saint Motel,Pop,2016
+308, Mama's Gun,267,Glass Animals,Pop,2018
+309, To the End,182,My Chemical Romance,Punk,2014
+310,Turning Out Pt. ii,224,AJR,Pop,2019
+311,Stronger Than The Whiskey,229, Poor Mans Poison,Country,2021
+312,C'mon Down,158,Poor Man's Poison,Country,2023
+313, Hey Mister,154,Poor Man's Poison,Country,2023
+314,Pools ,289,Glass Animals,Pop,2016
+315, Daddy ! Daddy ! Do !,255,Masayuki Suzuki,Pop,2021
+316, Greedy Man,212,Poor Man's Poison,Country,2023
+317,Prodigal,202,Poor Man's Poison,Country,2015
+318,Hit The Snooze,248, The Living Tombstone,Electronic,2022
+319,Death Of A Bachelor,211,Panic! At The Disco,Pop,2016
+320, Victorious,179,Panic! At The Disco,Pop,2017
+321, Golden Days,255,Panic! At The Disco,Pop,2017
+322,Animal,216,The Living Tombstone,Pop,2020
+323,zero_one,290,The Living Tombstone,Electronic,2020
+324,Long Time Friends,216,The Living Tombstone,Pop,2020
+325,Fly Home,208,The Living Tombstone,Pop,2020
+326,Can't Wait,167,The Living Tombstone,Pop,2020
+327,Temporary Love,146,The Living Tombstone,Pop,2022
+328,Rivers Is A Vampire,186,Bear Ghost ,Metal,2023
+329,Goose Goose Revolution,157,The Living Tombstone,Electronic,2020
+330,Chosen,211,The Living Tombstone,Pop,2020
+331, Georgia Law Man,205,Poor Man's Poison,Country,2023
+332,Change,149,Poor Man's Poison,Country,2023
+333,Roaring 20s,187,Panic! At The Disco,Pop,2018
+334,"Haunt, The Cartoon Heart",220,Bear Ghost,Metal,2019
+335,One of the Drunks,180,Panic! At The Disco,Pop,2019
+336,There's A Good Reason These Tables Are Numbered Honey...,197,Panic! At The Disco,Pop,2015
+337,The Overpass,178,Panic! At The Disco,Pop,2018
+338,Sarah Smiles,214,Panic! At The Disco,Pop,2017
+339,Hurricane,220,Panic! At The Disco,Pop,2012
+340,Nobody Likes the Opening Band,136, I DONT KNOW HOW BUT THEY FOUND ME,Pop,2020
+341,Old Fashioned ,167, Panic! At The Disco,Pop,2018
+342,Stronger,202,SIAMÉS ,Pop,2017
+343,As You Get High,275,SIAMÉS ,Pop,2017
+344,Igowallah,170,Daniel Thrasher,Pop,2023
+345,Easier,205,SIAMÉS ,Pop,2020
+346,Everyone's A Guru Now,202,SAINT MOTEL,Pop,2023
+347,New Invention,192,I DONT KNOW HOW BUT THEY FOUND ME,Pop,2021
+348,Mx. Sinister,181,I DONT KNOW HOW BUT THEY FOUND ME,Pop,2021
+349,Absinthe,182,I DONT KNOW HOW BUT THEY FOUND ME,Pop,2018
+350,Bleed Magic,159,I DONT KNOW HOW BUT THEY FOUND ME,Pop,2018
+351,MAD IQs,182,I DONT KNOW HOW BUT THEY FOUND ME,Pop,2020
+352, Dead Inside,202,Younger Hunger,Pop,2018
+353,Sweet Talk,193,Saint Motel,Pop,2016
+354,Sickness for Nothing,152,Bear Ghost,Metal,2016
+355,Move,188,Saint Motel,Pop,2017
+356,Dreamland ,204,Glass Animals,Pop,2020
+357, Stalker's Tango,175,Autoheart,Pop,2022
+358, The Mario Cliché,240,Bear Ghost,Metal,2023
+359," After Me, the Flood",152,Bear Ghost,Metal,2023
+360,Heavy News,265,Bear Ghost,Metal,2023
+361,Peas & Love,176,Bear Ghost,Metal,2023
+362,When I'm Dead,208,Bear Ghost,Metal,2023
+363,Vulture,415,Bear Ghost,Metal,2023
+364,vampire ,220, Olivia Rodrigo,Pop,2023
+365, For the Departed,221,Shayfer James,Pop,2014
+366,Witch ,232, Burn The Ballroom,Rock,2014
+367,This Is the End,230,Dr. Villain,Country,2021
+368,Goodbye Cruel World,233,Burn The Ballroom,Pop,2022
+369,past lives,150,sapientdream ,Pop,2020
+370, Ghost of Chicago,188,Noah Floersch,Pop,2023
+371,Looking Out for You,180,Joy Again,Pop,2021
+372,Threnody ,381,Burn the Ballroom,Metal,2017
+373, Boys Will Be Bugs,326,Cavetown ,Hip-Hop,2019
+374,Until It Doesn't Hurt,176,Mother Mother,Metal,2021
+375,Castaway,207,The Vanished People,Pop,2023
+376,Hayloft,386,Mother Mother,Metal,2022
+377, Fly Me To The Moon,148,Frank Sinatra,R&B,2013
+378,Moscow,235,Autoheart,Pop,2022
+379, Villainous Thing,202,Shayfer James,Pop,2014
+380,Agoraphobia,266,Autoheart,Pop,2022
+381,Calm Down,290,Burn The Ballroom,Rock,2021
+382, Where We Belong,198,Shayfer James,Pop,2014
+383, Lights Go Down,205,I DONT KNOW HOW BUT THEY FOUND ME,Pop,2020
+384,Bubbly ,189,Good Kid,Pop,2024
+385,Mimi's Delivery Service,180,Good Kid,Pop,2023
+386,Osmosis,173,Good Kid,Pop,2023
+387,Down With The King,177,Good Kid,Pop,2020
+388,Drifting,147,Good Kid,Pop,2020
+389,From The Start,151,Good Kid,Pop,2023
+390,The Rare Occasions,195,Notion,Pop,2018
+391,QUEEN OF THE NIGHT,165, The Vanished People,Pop,2023
+392,Break,153,Good Kid,Pop,2024
+393,No Time To Explain,157,Good Kid,Pop,2022
+394,Slingshot ,186,Good Kid,Pop,2019
+395,Muders,223,Miracle Musical,Pop,2012
+396,Whose Eye Is It Anyway???,166,Jhariah ,Pop,2020
+397, Labyrinth,153,Miracle Musical,Hip-Hop,2012
+398, Cannibal,209,Tally Hall,Pop,2016
+399,She Wants Me,201,The Happy Fits,Pop,2020
+400,Summer,153,Good Kid,Pop,2024
+401,Atlas,144,Good Kid,Pop,2016
+402,Pox,159,Good Kid,Pop,2020
+403,Madeleine ,174,Good Kid,Pop,2023
+404,Man On The Moon,177,Alan Walker,Electronic,2022
+405,The Drum,188,Alan Walker,Electronic,2022
+406,Royalty ,221,Egzod ,Electronic,2021
+407,Lovesick ,130,Alan Walker,Electronic,2022
+408,Devil's Lullaby,176,Jim Yosef,Electronic,2023
+409,Lie To Me,173,Besomorph,Electronic,2021
+410,GODS,136,Jim Yosef,Electronic,2024
+411,Throne ,194,Rival ,Electronic,2021
+412,Fire!,124,Alan Walker,Electronic,2024
+413,BATTLECRY ,152,Jim Yosef,Electronic,2023
+414,Everybody,186,Jim Yosef,Electronic,2020
+415, Lost Myself To You,150,Besomorph ,Electronic,2022
+416,Storm Chaser,182,Jim Yosef,Electronic,2023
+417,Ghost ,187,Jim Yosef,Electronic,2022
+418,Back From The Dead,180,Besomorph,Electronic,2022
+419,Lay Low,154,Tiësto ,Electronic,2023
+420,Ghost Light,192,TheFatRat ,Electronic,2022
+421,End It,197,RIELL ,Electronic,2023
+422,10:35,173,Tiësto ,Electronic,2022
+423,Queen of Kings,149,Alessandra ,Electronic,2023
+424,Giants,175,Neoni ,Electronic,2019
+425,Wilted ,189,Besomorph ,Electronic,2019
+426,Out Of Love,145,Alan Walker,Electronic,2022
+427,Anxiety ,170,Besomorph ,Electronic,2020
+428,Ignite ,189,Prismo ,Electronic,2022
+429,SPKOTHDVL,182,I DONT KNOW HOW BUT THEY FOUND ME,Pop,2024
+430,Always The Same,227,SIAMÉS ,Pop,2021
+431,The Phoenix,234,SIAMÉS ,Pop,2024
+432,Out Of The Rain,194,TheFatRat ,Electronic,2023
+433, Dear God,203,Confetti ,Pop,2018
+434,Ghost,170,Confetti ,Pop,2020
+435,GOSSIP ,169,Måneskin ,Pop,2023
+436,Why Do I,155,Set It Off,Pop,2022
+437,James Bond,264, Paper Idol,Pop,2021
+438,INDIFFERENT ,2023,LeGrand ,Hip-Hop,2023
+439,Stranger ,133,Stellar ,Pop,2022
+440,Blur,132,Stellar,Pop,2020
+441,Bright Side Baby,229,Paper Idol,Pop,2022
+442, Rule #21 - Momento Mori,190,Fish in a Birdcage,Pop,2020
+443,Flight of the Crows,173,Jhariah ,Pop,2021
+444,PRESSURE BOMB 3?!?!,197,Jhariah,Pop,2023
+445,A Human's Touch,292,TWRP ,Pop,2024
+446,The Mind Electric,171,Miracle Musical,Electronic,2012
+447,"Knives Are Dangerous, Kid, So Cut the Theatrics!",231,Jhariah ,Pop,2020
+448,Debt Collector,154,Jhariah ,Pop,2021
+449,Memento Mori,170,Will Wood,Pop,2021
+450, PIN-EYE,273,Jhariah ,Pop,2024
+451,RE: CONCERNS,267,Jhariah ,Metal,2024
+452,FIRE4FUN,218,Jhariah ,Metal,2024
+453,Control Baby,200,Jhariah ,Pop,2024
+454,Maybe Later Dance,189,Jhariah ,Metal,2024
+455,Needed a Change of Pace,236,Jhariah ,Pop,2023
+456,BigShot,163,Jhariah ,Metal,2024
+457,Trust Ceremony,323,Jhariah ,Pop,2024
+458,505,254,Arctic Monkeys,Pop,2014
+459,The Less I Know The Better,217,Tame Impala,Pop,2018
+460,City of Ashes,227,Jhariah ,Metal,2023
+461, Domestic Bliss,199,Glass Animals,Pop,2023
+462, Alien Blues,156,Vundabar,Pop,2021
+463,Show Pony,256,Glass Animals,Pop,2024
+464," Who Are You, Really?",147,Mikky Ekko,Pop,2024
+465,Eat Your Young,243,Hozier ,Pop,2024
+466,Sweater Weather,241,The Neighbourhood,Pop,2015
+467,Way down We Go,214,KALEO,Pop,2017
+468,Icarus,226,Bastille,Pop,2018
+469,Dear Fellow Traveller,221,Sea Wolf,Folk,2015
+470, Christmas Kids,137,Roar,Pop,2019
+471,"Hand Me My Shovel, I'm Going in! ",352,Will Wood and the Tapeworms,Pop,2020
+472,Homage,178,Mild High Club,Pop,2016
+473,Dirty Imbecile,240,The Happy Fits,Pop,2016
+474,TRUST CEREMONY,323,Jhariah ,Metal,2024
+475,6up 5oh Copout,225,Will Wood and the Tapeworms,Pop,2024
+476, Against the Kitchen Floor,307,Will Woods,Pop,2024
+477, The Main Character,266,Will Wood,Pop,2024
+478,2econd 2ight 2eer,207,Will Wood,Pop,2021
+479,Cotard's Solution,306,Will Wood and the Tapeworms,Pop,2024
+480," Love, Me Normally",345,Will Wood,Pop,2021
+481, Laplace’s Angel,242,Will Wood,Pop,2021
+482, The Song with Five Names,267,Will Wood and the Tapeworms,Pop,2020
+483, Half-Decade Hangover,290,Will Wood,Pop,2024
+484,Under My Skin,200,Jukebox The Ghost,Pop,2008
+485," ... well, better than the alternative",257,Will Wood,Pop,2024
+486, The Popular Thing,224,Jukebox the Ghost,Pop,2020
+487, Victoria,225,Jukebox the Ghost,Pop,2020
+488,"That's Enough, Let's Get You Home.",232,Will Wood,Pop,2024
+489,"Um, It's Kind of a Lot",322,Will Wood,Pop,2024
+490,Variations on a Cloud,191,Miracle Musical,Electronic,2012
+491,Rule #44 - Badger,164,Fish in a Birdcage,Pop,2024
+492,Dear Arkansas Daughter,353,Lady Lamb,Folk,2024
+493,Stuck in the Sound,206,Let's go,Pop,2020
+494,CLUTCH ,198,The Vanished People,Pop,2024
+495, Heart of a Dancer,219,The Happy Fits,Pop,2018
+496,Hurry Hurry,203,Air Traffic Controller ,Pop,2013
+497,Give a Little,220,LeGrand ,Hip-Hop,2023
+498, Black Hole Fantasy,395,The Crane Wives,Folk,2024
+499,what is wrong with me,192,LeGrand,Hip-Hop,2023
+500,Rome,216,LeGrand,Hip-Hop,2023
+501,dopamine highscore,218,LeGrand,Hip-Hop,2023
+502,okay,201,LeGrand,Hip-Hop,2023
+503,Grow Back,306,The Happy Fits,Pop,2018
+504,Back and Forth,136,LeGrand,Hip-Hop,2024
+505,Fall,192,LeGrand,Hip-Hop,2023
+506,off my mind,137,LeGrand,Hip-Hop,2023
+507,Misplaced Faith,179,LeGrand,Hip-Hop,2023
+508,Fallout,164,LeGrand,Hip-Hop,2025
+509,Breakdown,141,LeGrand,Hip-Hop,2024
+510,Take Me Out,240,Franz Ferdinand,Rock,2023
+511,NPC,152,LeGrand,Hip-Hop,2023
+512,Backstep (backstab),105,LeGrand,Hip-Hop,2024
+513,not my problem,148,LeGrand,Hip-Hop,2023
+514,DISILLUSIONED,160,LeGrand,Hip-Hop,2023
+515,Textbook Manipulation,217,LeGrand,Hip-Hop,2023
+516,Heroes and Gardens,263,LeGrand,Hip-Hop,2023
+517, Bucket List,248,LeGrand,Hip-Hop,2023
+518,Do Your Worst ,210,The Happy Fits,Pop,2022
+519,Mad godS,261,Dirt Poor Robins,Pop,2025
+520,Last Goodbye,305,Dirt Poor Robins,Pop,2022
+521,Make a Wish,217, Shayfer James,Pop,2025
+522,Age of Man,366,Greta Van Fleet,Rock,2018
+523,The Cold Wind,196,Greta Van Fleet,Rock,2018
+524,When The Curtain Falls,222,Greta Van Fleet,Rock,2018
+525,Watching Over,267,Greta Van Fleet,Rock,2018
+526,"Lover, Leaver",214,Greta Van Fleet,Rock,2018
+527,You're The One,266,Greta Van Fleet,Rock,2018
+528,The New Day,224,Greta Van Fleet,Rock,2018
+529,Mountain Of The Sun,270,Greta Van Fleet,Rock,2018
+530,Brave New World,300,Greta Van Fleet,Rock,2018
+531,Anthem,281,Greta Van Fleet,Rock,2018
