@@ -59,7 +59,7 @@ export default function songsRouter(db) {
 
     // Search songs by title (exact or partial)
     router.get("/search/title/", async (req, res) => {
-        const { title , user_id} = req.query;   // REQUIRED for weighting
+        const {title , user_id} = req.query;   // REQUIRED for weighting
         console.log(`Attempting Search by Title ${title} and userID ${user_id}`)
         try {
             // Step 1: fetch songs that match
