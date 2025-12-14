@@ -7,7 +7,11 @@ export async function getProfiles() {
 }
 
 export async function login(name, password) {
-  const res = await fetch(`${API_URL}/profiles/login?name=${name}&password=${password}`);
+  const res = await fetch(`${API_URL}/profiles/login`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ name, password })
+  });
   return res.json();
 }
 
