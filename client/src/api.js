@@ -8,7 +8,7 @@ export async function getProfiles() {
 
 export async function login(name, password) {
   const res = await fetch(`${API_URL}/profiles/login`, {
-    method: "POST",
+    method: "POST",// change to get
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ name, password })
   });
@@ -45,11 +45,6 @@ export async function updatePassword(id, password) {
 export async function getSongs() {
   const res = await fetch(`${API_URL}/songs`);
   if (!res.ok) throw new Error("Failed to fetch songs");
-  return res.json();
-}
-
-export async function searchSongs(query) {
-  const res = await fetch(`${API_URL}/songs?title=${encodeURIComponent(query)}`);
   return res.json();
 }
 
