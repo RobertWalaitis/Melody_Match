@@ -66,8 +66,8 @@ export default function profileRoutes(db) {
     });
 
     // --- LOGIN ROUTE ---
-    router.post("/login", async (req, res) => {
-        const { name, password } = req.body;
+    router.get("/login", async (req, res) => {
+        const { name, password } = req.params;
         console.log("Login attempt for:", name, "with password:", password);
         const profile = await db.get(
             "SELECT * FROM Profiles WHERE profile_name = ? AND profile_password = ?",
