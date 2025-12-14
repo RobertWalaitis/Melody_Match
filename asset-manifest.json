@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/Melody_Match/static/js/main.2ac823f5.js",
+    "main.js": "/Melody_Match/static/js/main.b3b6c0ba.js",
     "index.html": "/Melody_Match/index.html",
-    "main.2ac823f5.js.map": "/Melody_Match/static/js/main.2ac823f5.js.map"
+    "main.b3b6c0ba.js.map": "/Melody_Match/static/js/main.b3b6c0ba.js.map"
   },
   "entrypoints": [
-    "static/js/main.2ac823f5.js"
+    "static/js/main.b3b6c0ba.js"
   ]
 }
